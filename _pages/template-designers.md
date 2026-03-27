@@ -6,7 +6,7 @@ layout: single
 
 ## No-Code Intelligent Template Building
 
-Design and build intelligent templates without writing a single line of code. The ActiveDocs Designer training covers everything you need to get started — from core terminology to hands-on template creation.
+Design and build intelligent templates without writing a single line of code. Here is verything you need to get started — from core terminology to hands-on template creation.
 
 ### Getting Started
 
