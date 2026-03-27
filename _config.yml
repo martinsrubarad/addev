@@ -1,5 +1,6 @@
 # Site Settings
 title: "ActiveDocs"
+logo: "/assets/images/adlogo.png"
 subtitle: ""
 name: "ActiveDocs"
 description: "ActiveDocs developer and designer documentation."
