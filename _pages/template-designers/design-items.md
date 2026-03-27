@@ -2,8 +2,6 @@
 title: "Design Items"
 permalink: /template-designers/design-items/
 layout: single
-sidebar:
-  nav: "template-designers"
 toc: true
 toc_sticky: true
 ---
