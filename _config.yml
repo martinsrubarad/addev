@@ -1,8 +1,8 @@
 # Site Settings
-title: "My Site"
+title: "ActiveDocs"
 subtitle: ""
-name: ""
-description: "A site powered by Jekyll and Minimal Mistakes."
+name: "ActiveDocs"
+description: "ActiveDocs developer and designer documentation."
 url: "https://martinsrubarad.github.io"
 baseurl: "/addev"
 repository: "martinsrubarad/addev"
@@ -31,16 +31,6 @@ plugins:
 paginate: 5
 paginate_path: /page:num/
 
-# Site Author
-author:
-  name: ""
-  bio: ""
-  # avatar: "/assets/images/avatar.png"
-  links:
-    - label: "GitHub"
-      icon: "fab fa-fw fa-github"
-      url: "https://github.com/martinsrubarad"
-
 # Defaults
 defaults:
   - scope:
@@ -48,14 +38,12 @@ defaults:
       type: posts
     values:
       layout: single
-      author_profile: true
       read_time: true
       comments: false
-      share: true
+      share: false
       related: true
   - scope:
       path: ""
       type: pages
     values:
       layout: single
-      author_profile: true

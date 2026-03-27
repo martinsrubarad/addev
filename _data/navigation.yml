@@ -5,8 +5,6 @@ main:
     url: /developers/
   - title: "Template Designers"
     url: /template-designers/
-  - title: "About"
-    url: /about/
 
 developers:
   - title: "API Reference"
