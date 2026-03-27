@@ -7,21 +7,17 @@ header:
   overlay_color: "#5e616c"
   overlay_image: /assets/images/splash.png
 excerpt: "Explore guides and tutorials to start building with ActiveDocs."
-feature_row:
-  - image_path: /assets/images/developers.png
-    alt: "Developers"
-    title: "Developers"
-    excerpt: "Build integrated document automation solutions fast."
-    url: /developers/
-    btn_label: "Learn More"
-    btn_class: "btn--primary"
-  - image_path: /assets/images/template-designers.png
-    alt: "Template Designers"
-    title: "Template Designers"
-    excerpt: "No-code intelligent template building."
-    url: /template-designers/
-    btn_label: "Learn More"
-    btn_class: "btn--primary"
 ---
 
-{% include feature_row %}
+<div class="feature-cards">
+  <div class="feature-card">
+    <h3><img src="{{ site.baseurl }}/assets/images/developers.png" alt="" class="feature-icon"> <a href="{{ site.baseurl }}/developers/">Developers</a></h3>
+    <p>Build integrated document automation solutions fast.</p>
+    <p><a href="{{ site.baseurl }}/developers/" class="btn btn--primary">Learn More</a></p>
+  </div>
+  <div class="feature-card">
+    <h3><img src="{{ site.baseurl }}/assets/images/template-designers.png" alt="" class="feature-icon"> <a href="{{ site.baseurl }}/template-designers/">Template Designers</a></h3>
+    <p>No-code intelligent template building.</p>
+    <p><a href="{{ site.baseurl }}/template-designers/" class="btn btn--primary">Learn More</a></p>
+  </div>
+</div>
