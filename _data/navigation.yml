@@ -1,5 +1,29 @@
 main:
   - title: "Home"
     url: /
+  - title: "Developers"
+    url: /developers/
+  - title: "Template Designers"
+    url: /template-designers/
   - title: "About"
     url: /about/
+
+template-designers:
+  - title: "Getting Started"
+    children:
+      - title: "Overview"
+        url: /template-designers/
+      - title: "Glossary of Terms"
+        url: /template-designers/glossary/
+      - title: "Design Components"
+        url: /template-designers/design-components/
+      - title: "Design Items"
+        url: /template-designers/design-items/
+  - title: "WorkCenter Client"
+    children:
+      - title: "Introduction"
+        url: /template-designers/workcenter-client/
+      - title: "WorkCenter Sites"
+        url: /template-designers/workcenter-sites/
+      - title: "Folders and Organization"
+        url: /template-designers/folders-and-organization/
