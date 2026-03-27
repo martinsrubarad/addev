@@ -1,0 +1,58 @@
+---
+---
+
+@import "minimal-mistakes/skins/{{ site.minimal_mistakes_skin | default: 'default' }}";
+@import "minimal-mistakes";
+
+/* Hide site title text when logo is present */
+.site-title {
+  .site-logo + .site-title-text,
+  img + span {
+    display: none;
+  }
+}
+
+.masthead .site-title {
+  display: flex;
+  align-items: center;
+}
+
+/* If the logo is present, hide the text that follows it */
+.masthead .site-title img ~ span,
+.masthead .site-title img ~ .site-title-text {
+  display: none;
+}
+
+/* Override: hide the title text entirely when logo exists.
+   Minimal Mistakes renders: <a class="site-title"><img ...>TITLE</a>
+   We hide the text node via font-size trick and restore img. */
+.site-logo + span {
+  font-size: 0 !important;
+}
+
+.masthead .site-title {
+  font-size: 0;
+}
+
+.masthead .site-title img {
+  font-size: 1rem;
+}
+
+/* 2-column feature row */
+.feature__wrapper {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 2em;
+}
+
+.feature__wrapper .feature__item {
+  float: none;
+  width: 100%;
+  margin: 0;
+}
+
+@media (max-width: 600px) {
+  .feature__wrapper {
+    grid-template-columns: 1fr;
+  }
+}
