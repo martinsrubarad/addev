@@ -8,6 +8,18 @@ main:
   - title: "About"
     url: /about/
 
+developers:
+  - title: "API Reference"
+    children:
+      - title: "Overview"
+        url: /developers/
+      - title: "API Overview"
+        url: /developers/api-overview/
+      - title: "Automated Document Production"
+        url: /developers/api-jobs/
+      - title: "Design Component Management"
+        url: /developers/api-design-components/
+
 template-designers:
   - title: "Getting Started"
     children:
