@@ -1,0 +1,57 @@
+# Site Settings
+title: "My Site"
+subtitle: ""
+name: ""
+description: "A site powered by Jekyll and Minimal Mistakes."
+url: ""
+baseurl: ""
+repository: "martinsrubarad/addev"
+
+# Theme
+theme: minimal-mistakes-jekyll
+minimal_mistakes_skin: "default" # "air", "aqua", "contrast", "dark", "dirt", "neon", "mint", "plum", "sunrise"
+
+# Build Settings
+markdown: kramdown
+remote_theme: mmistakes/minimal-mistakes
+
+# Plugins
+plugins:
+  - jekyll-feed
+  - jekyll-seo-tag
+  - jekyll-sitemap
+  - jekyll-paginate
+  - jekyll-include-cache
+
+# Pagination
+paginate: 5
+paginate_path: /page:num/
+
+# Site Author
+author:
+  name: ""
+  bio: ""
+  # avatar: "/assets/images/avatar.png"
+  links:
+    - label: "GitHub"
+      icon: "fab fa-fw fa-github"
+      url: "https://github.com/martinsrubarad"
+
+# Defaults
+defaults:
+  - scope:
+      path: ""
+      type: posts
+    values:
+      layout: single
+      author_profile: true
+      read_time: true
+      comments: false
+      share: true
+      related: true
+  - scope:
+      path: ""
+      type: pages
+    values:
+      layout: single
+      author_profile: true
