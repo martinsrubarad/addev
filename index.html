@@ -1,4 +1,21 @@
 ---
-layout: home
-author_profile: true
+layout: splash
+permalink: /
+hidden: true
+header:
+  overlay_color: "#5e616c"
+  overlay_filter: "0.5"
+  overlay_image: /assets/images/splash.jpg
+  actions:
+    - label: "Learn More"
+      url: /about/
+excerpt: "A site powered by Jekyll and Minimal Mistakes."
+feature_row:
+  - title: "About"
+    excerpt: "Learn more about this site and what it's all about."
+    url: /about/
+    btn_label: "Read More"
+    btn_class: "btn--primary"
 ---
+
+{% include feature_row %}
