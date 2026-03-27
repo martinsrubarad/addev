@@ -45,6 +45,10 @@
   gap: 2em;
 }
 
+.feature-card h3 a {
+  text-decoration: none;
+}
+
 .feature-card h3 {
   display: flex;
   align-items: center;
