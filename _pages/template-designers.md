@@ -21,7 +21,7 @@ Design and build intelligent templates without writing a single line of code. Th
       <div class="archive__item-excerpt">
         <p>Learn the key terminology used throughout ActiveDocs — Design Components, Design Items, and more.</p>
       </div>
-      <p><a href="/addev/template-designers/glossary/" class="btn btn--primary">Read More</a></p>
+      <p><a href="{{ site.baseurl }}/template-designers/glossary/" class="btn btn--primary">Read More</a></p>
     </div>
   </div>
 </div>
@@ -33,7 +33,7 @@ Design and build intelligent templates without writing a single line of code. Th
       <div class="archive__item-excerpt">
         <p>Understand Templates, Template Sets, Snippets, Data Views, Design Item Sets, and Workflows.</p>
       </div>
-      <p><a href="/addev/template-designers/design-components/" class="btn btn--primary">Read More</a></p>
+      <p><a href="{{ site.baseurl }}/template-designers/design-components/" class="btn btn--primary">Read More</a></p>
     </div>
   </div>
 </div>
@@ -45,7 +45,7 @@ Design and build intelligent templates without writing a single line of code. Th
       <div class="archive__item-excerpt">
         <p>Explore Active Fields, Groups, Repeating Item Groups, Charts, Snippet Links, and Rules.</p>
       </div>
-      <p><a href="/addev/template-designers/design-items/" class="btn btn--primary">Read More</a></p>
+      <p><a href="{{ site.baseurl }}/template-designers/design-items/" class="btn btn--primary">Read More</a></p>
     </div>
   </div>
 </div>
@@ -63,7 +63,7 @@ Design and build intelligent templates without writing a single line of code. Th
       <div class="archive__item-excerpt">
         <p>Access and navigate the ActiveDocs WorkCenter Client to manage your Design Components.</p>
       </div>
-      <p><a href="/addev/template-designers/workcenter-client/" class="btn btn--primary">Read More</a></p>
+      <p><a href="{{ site.baseurl }}/template-designers/workcenter-client/" class="btn btn--primary">Read More</a></p>
     </div>
   </div>
 </div>
@@ -75,7 +75,7 @@ Design and build intelligent templates without writing a single line of code. Th
       <div class="archive__item-excerpt">
         <p>Add, remove, and manage WorkCenter Site connections for storing Design Components.</p>
       </div>
-      <p><a href="/addev/template-designers/workcenter-sites/" class="btn btn--primary">Read More</a></p>
+      <p><a href="{{ site.baseurl }}/template-designers/workcenter-sites/" class="btn btn--primary">Read More</a></p>
     </div>
   </div>
 </div>
@@ -87,7 +87,7 @@ Design and build intelligent templates without writing a single line of code. Th
       <div class="archive__item-excerpt">
         <p>Create folders, configure approval workflows, and organize Design Components effectively.</p>
       </div>
-      <p><a href="/addev/template-designers/folders-and-organization/" class="btn btn--primary">Read More</a></p>
+      <p><a href="{{ site.baseurl }}/template-designers/folders-and-organization/" class="btn btn--primary">Read More</a></p>
     </div>
   </div>
 </div>

@@ -3,17 +3,20 @@ title: "My Site"
 subtitle: ""
 name: ""
 description: "A site powered by Jekyll and Minimal Mistakes."
-url: ""
-baseurl: ""
+url: "https://martinsrubarad.github.io"
+baseurl: "/addev"
 repository: "martinsrubarad/addev"
 
 # Theme
-theme: minimal-mistakes-jekyll
+remote_theme: mmistakes/minimal-mistakes
 minimal_mistakes_skin: "default" # "air", "aqua", "contrast", "dark", "dirt", "neon", "mint", "plum", "sunrise"
 
 # Build Settings
 markdown: kramdown
-remote_theme: mmistakes/minimal-mistakes
+
+# Reading Files
+include:
+  - _pages
 
 # Plugins
 plugins:
@@ -22,6 +25,7 @@ plugins:
   - jekyll-sitemap
   - jekyll-paginate
   - jekyll-include-cache
+  - jekyll-remote-theme
 
 # Pagination
 paginate: 5
