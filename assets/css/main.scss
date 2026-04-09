@@ -360,8 +360,14 @@ body.wide-content #main {
 }
 
 .page__content pre {
-  border: 1px solid $obsidian-20;
+  background: $obsidian-20;
+  border: 1px solid darken($obsidian-20, 5%);
   border-radius: 6px;
+
+  code {
+    background: none;
+    color: $obsidian;
+  }
 }
 
 // ============================================
