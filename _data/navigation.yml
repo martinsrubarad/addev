@@ -37,3 +37,23 @@ template-designers:
         url: /template-designers/workcenter-sites/
       - title: "Folders and Organization"
         url: /template-designers/folders-and-organization/
+  - title: "Template Design"
+    children:
+      - title: "Template Design Process"
+        url: /template-designers/template-design-process/
+      - title: "The ActiveDocs Ribbon"
+        url: /template-designers/activedocs-ribbon/
+      - title: "The Design Items Dialog"
+        url: /template-designers/design-items-dialog/
+      - title: "Groups and Active Fields"
+        url: /template-designers/groups-and-active-fields/
+      - title: "The Designer Pane"
+        url: /template-designers/designer-pane/
+  - title: "Data and Rules"
+    children:
+      - title: "Data Views"
+        url: /template-designers/data-views/
+      - title: "Importing Design Items"
+        url: /template-designers/importing-design-items/
+      - title: "Rules"
+        url: /template-designers/rules/

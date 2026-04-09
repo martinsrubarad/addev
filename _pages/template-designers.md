@@ -52,3 +52,61 @@ Create folders, configure approval workflows, and organize Design Components eff
 </div>
 
 </div>
+
+### Template Design
+{: .section-heading}
+
+<div class="topic-cards" markdown="1">
+
+<div class="topic-card" markdown="1">
+#### [Template Design Process]({{ site.baseurl }}/template-designers/template-design-process/)
+Plan, format, and import your Word documents into ActiveDocs as Templates.
+</div>
+
+<div class="topic-card" markdown="1">
+#### [The ActiveDocs Ribbon]({{ site.baseurl }}/template-designers/activedocs-ribbon/)
+Overview of the ActiveDocs tab in Microsoft Word and its design tools.
+</div>
+
+<div class="topic-card" markdown="1">
+#### [The Design Items Dialog]({{ site.baseurl }}/template-designers/design-items-dialog/)
+Manage Template properties and Design Items using the primary design interface.
+</div>
+
+</div>
+
+<div class="topic-cards" markdown="1">
+
+<div class="topic-card" markdown="1">
+#### [Groups and Active Fields]({{ site.baseurl }}/template-designers/groups-and-active-fields/)
+Create Groups, Active Fields, calculations, value lists, and insert fields into Templates.
+</div>
+
+<div class="topic-card" markdown="1">
+#### [The Designer Pane]({{ site.baseurl }}/template-designers/designer-pane/)
+Locate, view, and manage Design Item Markers in your Template.
+</div>
+
+</div>
+
+### Data and Rules
+{: .section-heading}
+
+<div class="topic-cards" markdown="1">
+
+<div class="topic-card" markdown="1">
+#### [Data Views]({{ site.baseurl }}/template-designers/data-views/)
+Connect Templates to external data sources like databases, spreadsheets, and web services.
+</div>
+
+<div class="topic-card" markdown="1">
+#### [Importing Design Items]({{ site.baseurl }}/template-designers/importing-design-items/)
+Import Design Items from other Templates, Design Item Sets, Data Views, or XML files.
+</div>
+
+<div class="topic-card" markdown="1">
+#### [Rules]({{ site.baseurl }}/template-designers/rules/)
+Control inclusion and exclusion of content and questions based on Active Field values.
+</div>
+
+</div>

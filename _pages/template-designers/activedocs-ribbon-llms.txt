@@ -1,0 +1,7 @@
+---
+permalink: /template-designers/activedocs-ribbon/llms.txt
+layout: null
+---
+# The ActiveDocs Ribbon
+
+{% include content/template-designers/activedocs-ribbon.md %}

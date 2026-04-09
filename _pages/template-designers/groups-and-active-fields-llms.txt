@@ -1,0 +1,7 @@
+---
+permalink: /template-designers/groups-and-active-fields/llms.txt
+layout: null
+---
+# Groups and Active Fields
+
+{% include content/template-designers/groups-and-active-fields.md %}

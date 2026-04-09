@@ -17,3 +17,17 @@ No-Code Intelligent Template Building. Design and build intelligent templates wi
 - [Introduction to WorkCenter Client]({{ site.baseurl }}/template-designers/workcenter-client/llms.txt) — Access and navigate the ActiveDocs WorkCenter Client to manage your Design Components.
 - [WorkCenter Sites]({{ site.baseurl }}/template-designers/workcenter-sites/llms.txt) — Add, remove, and manage WorkCenter Site connections for storing Design Components.
 - [Folders and Organization]({{ site.baseurl }}/template-designers/folders-and-organization/llms.txt) — Create folders, configure approval workflows, and organize Design Components effectively.
+
+## Template Design
+
+- [Template Design Process]({{ site.baseurl }}/template-designers/template-design-process/llms.txt) — Plan, format, and import your Word documents into ActiveDocs as Templates.
+- [The ActiveDocs Ribbon]({{ site.baseurl }}/template-designers/activedocs-ribbon/llms.txt) — Overview of the ActiveDocs tab in Microsoft Word and its design tools.
+- [The Design Items Dialog]({{ site.baseurl }}/template-designers/design-items-dialog/llms.txt) — Manage Template properties and Design Items using the primary design interface.
+- [Groups and Active Fields]({{ site.baseurl }}/template-designers/groups-and-active-fields/llms.txt) — Create Groups, Active Fields, calculations, value lists, and insert fields into Templates.
+- [The Designer Pane]({{ site.baseurl }}/template-designers/designer-pane/llms.txt) — Locate, view, and manage Design Item Markers in your Template.
+
+## Data and Rules
+
+- [Data Views]({{ site.baseurl }}/template-designers/data-views/llms.txt) — Connect Templates to external data sources like databases, spreadsheets, and web services.
+- [Importing Design Items]({{ site.baseurl }}/template-designers/importing-design-items/llms.txt) — Import Design Items from other Templates, Design Item Sets, Data Views, or XML files.
+- [Rules]({{ site.baseurl }}/template-designers/rules/llms.txt) — Control inclusion and exclusion of content and questions based on Active Field values.

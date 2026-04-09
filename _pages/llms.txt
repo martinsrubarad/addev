@@ -27,3 +27,11 @@ layout: null
 - [Introduction to WorkCenter Client]({{ site.baseurl }}/template-designers/workcenter-client/llms.txt) — Access and navigate the WorkCenter Client.
 - [WorkCenter Sites]({{ site.baseurl }}/template-designers/workcenter-sites/llms.txt) — Add, remove, and manage WorkCenter Site connections.
 - [Folders and Organization]({{ site.baseurl }}/template-designers/folders-and-organization/llms.txt) — Create folders, configure approval workflows, and organize Design Components.
+- [Template Design Process]({{ site.baseurl }}/template-designers/template-design-process/llms.txt) — Plan, format, and import Word documents as Templates.
+- [The ActiveDocs Ribbon]({{ site.baseurl }}/template-designers/activedocs-ribbon/llms.txt) — ActiveDocs tab in Microsoft Word and its design tools.
+- [The Design Items Dialog]({{ site.baseurl }}/template-designers/design-items-dialog/llms.txt) — Primary interface for managing Design Items.
+- [Groups and Active Fields]({{ site.baseurl }}/template-designers/groups-and-active-fields/llms.txt) — Create Groups, Active Fields, calculations, and value lists.
+- [The Designer Pane]({{ site.baseurl }}/template-designers/designer-pane/llms.txt) — Locate and manage Design Item Markers.
+- [Data Views]({{ site.baseurl }}/template-designers/data-views/llms.txt) — Connect to external data sources.
+- [Importing Design Items]({{ site.baseurl }}/template-designers/importing-design-items/llms.txt) — Import from Templates, Design Item Sets, Data Views, or XML.
+- [Rules]({{ site.baseurl }}/template-designers/rules/llms.txt) — Control inclusion and exclusion of content and questions.
