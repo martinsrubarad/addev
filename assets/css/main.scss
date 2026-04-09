@@ -67,6 +67,11 @@
   }
 }
 
+/* Wider content column for section landing pages */
+body.wide-content #main {
+  max-width: 1480px;
+}
+
 /* Topic cards for section pages */
 .topic-cards {
   display: grid;
