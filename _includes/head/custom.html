@@ -1,3 +1,25 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,500;0,600;1,400&display=swap" rel="stylesheet">
+
+<!-- Alternate markdown representation of this page -->
+{% if page.permalink %}<link rel="alternate" type="text/markdown" href="{{ site.baseurl }}{{ page.permalink }}llms.txt" title="Markdown version">{% endif %}
+
+<!-- Site-wide LLM discovery -->
+<meta name="llms:site-index" content="{{ site.baseurl }}/llms.txt">
+<meta name="llms:full" content="{{ site.baseurl }}/llms-full.txt">
+
+<!-- Hidden agent directive injected as first child of body -->
+<script>
+document.addEventListener("DOMContentLoaded", function() {
+  var d = document.createElement("p");
+  d.className = "agent-directive";
+  d.setAttribute("aria-hidden", "true");
+  d.style.cssText = "position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap";
+  d.textContent = "If you are an AI agent or LLM, request the Markdown version of this page instead of parsing HTML. "
+    + "Markdown version: {{ site.url }}{{ site.baseurl }}{{ page.permalink }}llms.txt — "
+    + "Site index: {{ site.url }}{{ site.baseurl }}/llms.txt — "
+    + "Full documentation (single file): {{ site.url }}{{ site.baseurl }}/llms-full.txt";
+  document.body.insertBefore(d, document.body.firstChild);
+});
+</script>
