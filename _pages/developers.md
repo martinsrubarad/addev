@@ -2,6 +2,7 @@
 title: "Developers"
 permalink: /developers/
 layout: single
+classes: wide-content
 ---
 
 ## Build Integrated Document Automation Solutions Fast

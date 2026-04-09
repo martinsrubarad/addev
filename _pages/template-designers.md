@@ -2,6 +2,7 @@
 title: "Template Designers"
 permalink: /template-designers/
 layout: single
+classes: wide-content
 ---
 
 ## No-Code Intelligent Template Building
