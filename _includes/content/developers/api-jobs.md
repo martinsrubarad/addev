@@ -808,53 +808,41 @@ Write documents to a file system location.
 
 The simplest integration pattern. Submit a job, then poll the status endpoint until the job completes or errors.
 
-```javascript
-async function submitAndWaitForJob(apiBaseUrl, apiKey, jobDef) {
-  // Submit the job
-  const submitResponse = await fetch(`${apiBaseUrl}/api/v2/jobs/jobdef`, {
-    method: "POST",
-    headers: {
-      "Content-Type": "application/json",
-      "apikey": apiKey
-    },
-    body: JSON.stringify(jobDef)
-  });
+```csharp
+using var client = new HttpClient();
+client.DefaultRequestHeaders.Add("apikey", apiKey);
 
-  const jobQueueItem = await submitResponse.json();
-  const jobId = jobQueueItem.id;
-  console.log(`Job submitted: ${jobId}`);
+// Step 1: Submit the job
+var jobDefJson = JsonSerializer.Serialize(jobDef);
+var content = new StringContent(jobDefJson, Encoding.UTF8, "application/json");
+var submitResponse = await client.PostAsync($"{apiBaseUrl}/api/v2/jobs/jobdef", content);
+var jobQueueItem = await submitResponse.Content.ReadFromJsonAsync<JobQueueItem>();
+var jobId = jobQueueItem.JobID;
+Console.WriteLine($"Job submitted: {jobId}");
 
-  // Poll for completion
-  let status = "InProgress";
-  while (status === "InProgress") {
-    await new Promise(resolve => setTimeout(resolve, 2000)); // Wait 2 seconds
+// Step 2: Poll for completion
+string status = "InProgress";
+while (status == "InProgress")
+{
+    await Task.Delay(2000); // Wait 2 seconds
 
-    const statusResponse = await fetch(
-      `${apiBaseUrl}/api/v2/jobs/${jobId}/status`,
-      { headers: { "apikey": apiKey } }
-    );
-    const statusResult = await statusResponse.json();
-    status = statusResult.jobStatus;
-    console.log(`Job ${jobId} status: ${status}`);
-  }
-
-  if (status === "Error") {
-    // Retrieve error details
-    const errResponse = await fetch(
-      `${apiBaseUrl}/api/v2/jobs/${jobId}/errors`,
-      { headers: { "apikey": apiKey } }
-    );
-    const errors = await errResponse.json();
-    throw new Error(`Job failed: ${JSON.stringify(errors)}`);
-  }
-
-  // Retrieve the completed job with documents
-  const jobResponse = await fetch(
-    `${apiBaseUrl}/api/v2/jobs/${jobId}?include=All`,
-    { headers: { "apikey": apiKey } }
-  );
-  return await jobResponse.json();
+    var statusResponse = await client.GetAsync($"{apiBaseUrl}/api/v2/jobs/{jobId}/status");
+    var statusResult = await statusResponse.Content.ReadFromJsonAsync<JobQueueItem>();
+    status = statusResult.ProgressStatus;
+    Console.WriteLine($"Job {jobId} status: {status}");
 }
+
+// Step 3: Handle result
+if (status == "Error")
+{
+    var errResponse = await client.GetAsync($"{apiBaseUrl}/api/v2/jobs/{jobId}/errors");
+    var errors = await errResponse.Content.ReadAsStringAsync();
+    throw new Exception($"Job failed: {errors}");
+}
+
+// Step 4: Retrieve the completed job with documents
+var jobResponse = await client.GetAsync($"{apiBaseUrl}/api/v2/jobs/{jobId}?include=All");
+var completedJob = await jobResponse.Content.ReadFromJsonAsync<QueuedJob>();
 ```
 
 ### Asynchronous with Webhook Callback

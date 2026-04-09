@@ -133,103 +133,97 @@ apikey: your-api-key-here
 
 The response contains document IDs that you can use to download the actual document files via the Documents API.
 
-### Complete Working Example (JavaScript)
+### Complete Working Example
 
-```javascript
-const BASE_URL = "https://your-server/activedocs/api/v2";
-const API_KEY = "your-api-key-here";
+```csharp
+using System.Net.Http.Json;
+using System.Text;
+using System.Text.Json;
 
-async function produceDocument() {
-  // Step 1: Define the job
-  const jobDef = {
-    jobItems: [
-      {
-        templateSets: [
-          {
-            id: "4B1D5E6FA7C84D3E9F0A1B2C3D4E5F67",
-            templates: [
-              { id: "A1B2C3D4E5F6A7B8C9D0E1F2A3B4C5D6" }
-            ]
-          }
-        ],
-        activeDocsAnswers: {
-          version: "3.0",
-          body: {
-            answers: [
-              { name: "ClientName", value: "Acme Corporation", type: "Text" },
-              { name: "ContractDate", value: "2026-04-09 00:00", type: "Date" },
-              { name: "ContractValue", value: "50000", type: "Currency" }
-            ]
-          }
+const string BASE_URL = "https://your-server/activedocs/api/v2";
+const string API_KEY = "your-api-key-here";
+
+using var client = new HttpClient();
+client.DefaultRequestHeaders.Add("apikey", API_KEY);
+
+// Step 1: Define the job
+var jobDef = new
+{
+    jobItems = new[]
+    {
+        new
+        {
+            templateSets = new[]
+            {
+                new
+                {
+                    id = "4B1D5E6FA7C84D3E9F0A1B2C3D4E5F67",
+                    templates = new[] { new { id = "A1B2C3D4E5F6A7B8C9D0E1F2A3B4C5D6" } }
+                }
+            },
+            activeDocsAnswers = new
+            {
+                version = "3.0",
+                body = new
+                {
+                    answers = new[]
+                    {
+                        new { name = "ClientName", value = "Acme Corporation", type = "Text" },
+                        new { name = "ContractDate", value = "2026-04-09 00:00", type = "Date" },
+                        new { name = "ContractValue", value = "50000", type = "Currency" }
+                    }
+                }
+            }
         }
-      }
-    ]
-  };
+    }
+};
 
-  // Step 2: Submit the job
-  const submitResponse = await fetch(`${BASE_URL}/jobs/jobdef`, {
-    method: "POST",
-    headers: {
-      "Content-Type": "application/json",
-      "apikey": API_KEY
-    },
-    body: JSON.stringify(jobDef)
-  });
+// Step 2: Submit the job
+var json = JsonSerializer.Serialize(jobDef);
+var content = new StringContent(json, Encoding.UTF8, "application/json");
+var submitResponse = await client.PostAsync($"{BASE_URL}/jobs/jobdef", content);
+submitResponse.EnsureSuccessStatusCode();
 
-  if (!submitResponse.ok) {
-    throw new Error(`Job submission failed: ${submitResponse.status}`);
-  }
+var job = await submitResponse.Content.ReadFromJsonAsync<JsonElement>();
+var jobId = job.GetProperty("jobID").GetString();
+Console.WriteLine($"Job submitted. ID: {jobId}");
 
-  const job = await submitResponse.json();
-  const jobId = job.id;
-  console.log(`Job submitted. ID: ${jobId}`);
+// Step 3: Poll for completion
+string status = "InProgress";
+while (status == "InProgress")
+{
+    await Task.Delay(2000); // Wait 2 seconds
 
-  // Step 3: Poll for completion
-  let status = "InProgress";
-  while (status === "InProgress") {
-    await new Promise(resolve => setTimeout(resolve, 2000)); // Wait 2 seconds
-
-    const statusResponse = await fetch(`${BASE_URL}/jobs/${jobId}/status`, {
-      headers: { "apikey": API_KEY }
-    });
-
-    const statusData = await statusResponse.json();
-    status = statusData.status;
-    console.log(`Job status: ${status}`);
-  }
-
-  if (status === "Error") {
-    const errResponse = await fetch(`${BASE_URL}/jobs/${jobId}/errors`, {
-      headers: { "apikey": API_KEY }
-    });
-    const errData = await errResponse.json();
-    throw new Error(`Job failed: ${JSON.stringify(errData.errors)}`);
-  }
-
-  // Step 4: Retrieve documents
-  const docsResponse = await fetch(`${BASE_URL}/jobs/${jobId}/documents`, {
-    headers: { "apikey": API_KEY }
-  });
-
-  const docsData = await docsResponse.json();
-  console.log(`Documents produced: ${docsData.documents.length}`);
-
-  // Download each document
-  for (const doc of docsData.documents) {
-    const fileResponse = await fetch(`${BASE_URL}/documents/${doc.id}/file`, {
-      headers: { "apikey": API_KEY }
-    });
-
-    const fileBlob = await fileResponse.blob();
-    console.log(`Downloaded document: ${doc.id} (${fileBlob.size} bytes)`);
-  }
-
-  return docsData;
+    var statusResponse = await client.GetAsync($"{BASE_URL}/jobs/{jobId}/status");
+    var statusData = await statusResponse.Content.ReadFromJsonAsync<JsonElement>();
+    status = statusData.GetProperty("progressStatus").GetString();
+    Console.WriteLine($"Job status: {status}");
 }
 
-produceDocument()
-  .then(result => console.log("Complete.", result))
-  .catch(err => console.error("Error:", err));
+if (status == "Error")
+{
+    var errResponse = await client.GetAsync($"{BASE_URL}/jobs/{jobId}/errors");
+    var errData = await errResponse.Content.ReadAsStringAsync();
+    throw new Exception($"Job failed: {errData}");
+}
+
+// Step 4: Retrieve documents
+var docsResponse = await client.GetAsync($"{BASE_URL}/jobs/{jobId}/documents");
+var docsData = await docsResponse.Content.ReadAsStringAsync();
+Console.WriteLine($"Documents retrieved for job {jobId}");
+
+// Download each document file
+var docsJson = JsonDocument.Parse(docsData);
+if (docsJson.RootElement.TryGetProperty("documents", out var documents))
+{
+    foreach (var doc in documents.GetProperty("documentIDs").EnumerateArray())
+    {
+        var docId = doc.GetProperty("docID").GetString();
+        var fileResponse = await client.GetAsync($"{BASE_URL}/documents/{docId}/file");
+        var fileBytes = await fileResponse.Content.ReadAsByteArrayAsync();
+        Console.WriteLine($"Downloaded document: {docId} ({fileBytes.Length} bytes)");
+    }
+}
 ```
 
 ## Using Postman
@@ -321,12 +315,20 @@ Always check the response status code and handle errors gracefully. When a job f
 
 Reuse HTTP connections when making multiple API calls. Most HTTP client libraries support connection pooling by default. Avoid creating a new HTTP client instance for each request, as this wastes resources and can exhaust available sockets under load.
 
-```javascript
-// Good: reuse a single client/session
-const headers = { "apikey": API_KEY, "Content-Type": "application/json" };
+```csharp
+// Good: reuse a single HttpClient instance
+private static readonly HttpClient _client = new HttpClient();
 
-// Bad: creating new connections per request
-// Each fetch() below reuses the underlying connection pool automatically in modern runtimes
+// Or use IHttpClientFactory in ASP.NET Core (recommended)
+public class DocumentService
+{
+    private readonly HttpClient _client;
+
+    public DocumentService(IHttpClientFactory httpClientFactory)
+    {
+        _client = httpClientFactory.CreateClient("ActiveDocs");
+    }
+}
 ```
 
-For .NET integrations, use a single `HttpClient` instance (or `IHttpClientFactory`) rather than creating and disposing clients per request.
+Use a single `HttpClient` instance (or `IHttpClientFactory` in ASP.NET Core) rather than creating and disposing clients per request.
