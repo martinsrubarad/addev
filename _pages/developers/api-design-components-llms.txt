@@ -1,0 +1,7 @@
+---
+permalink: /developers/api-design-components/llms.txt
+layout: null
+---
+# Design Component Management
+
+{% include content/developers/api-design-components.md %}
