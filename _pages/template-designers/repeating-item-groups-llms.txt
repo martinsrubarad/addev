@@ -1,0 +1,7 @@
+---
+permalink: /template-designers/repeating-item-groups/llms.txt
+layout: null
+---
+# Repeating Item Groups
+
+{% include content/template-designers/repeating-item-groups.md %}

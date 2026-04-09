@@ -110,3 +110,99 @@ Control inclusion and exclusion of content and questions based on Active Field v
 </div>
 
 </div>
+
+### Snippets
+{: .section-heading}
+
+<div class="topic-cards" markdown="1">
+
+<div class="topic-card" markdown="1">
+#### [Snippets and Snippet Links]({{ site.baseurl }}/template-designers/snippets-and-snippet-links/)
+Create, manage, and link reusable content for document generation.
+</div>
+
+<div class="topic-card" markdown="1">
+#### [Wizard Step Management]({{ site.baseurl }}/template-designers/wizard-step-management/)
+Reorder and sub-group Document Wizard steps for a better user experience.
+</div>
+
+</div>
+
+### Advanced Design
+{: .section-heading}
+
+<div class="topic-cards" markdown="1">
+
+<div class="topic-card" markdown="1">
+#### [Repeating Item Groups]({{ site.baseurl }}/template-designers/repeating-item-groups/)
+Collect multiple instances of similar data with support for nesting.
+</div>
+
+<div class="topic-card" markdown="1">
+#### [Local Template Options]({{ site.baseurl }}/template-designers/local-template-options/)
+Configure Document Wizard behavior, document naming, and Template-level settings.
+</div>
+
+<div class="topic-card" markdown="1">
+#### [Design Item Sets]({{ site.baseurl }}/template-designers/design-item-sets/)
+Share and maintain Design Items across multiple Templates and Snippets.
+</div>
+
+</div>
+
+<div class="topic-cards" markdown="1">
+
+<div class="topic-card" markdown="1">
+#### [Template Sets]({{ site.baseurl }}/template-designers/template-sets/)
+Combine Templates to generate merged or multiple documents with attachments.
+</div>
+
+</div>
+
+### Management
+{: .section-heading}
+
+<div class="topic-cards" markdown="1">
+
+<div class="topic-card" markdown="1">
+#### [Version Control]({{ site.baseurl }}/template-designers/version-control/)
+Manage Design Component versions, relationships, check-in, and publishing.
+</div>
+
+<div class="topic-card" markdown="1">
+#### [Exporting and Importing]({{ site.baseurl }}/template-designers/exporting-importing/)
+Move Design Components between WorkCenter Sites using content packages.
+</div>
+
+<div class="topic-card" markdown="1">
+#### [Workflows]({{ site.baseurl }}/template-designers/workflows/)
+Control document drafting, approval, and finalization processes.
+</div>
+
+</div>
+
+<div class="topic-cards" markdown="1">
+
+<div class="topic-card" markdown="1">
+#### [Design Component Approval]({{ site.baseurl }}/template-designers/design-approval/)
+Configure and manage the approval process for Templates and Snippets.
+</div>
+
+</div>
+
+### WorkCenter
+{: .section-heading}
+
+<div class="topic-cards" markdown="1">
+
+<div class="topic-card" markdown="1">
+#### [WorkCenter and Document Wizard]({{ site.baseurl }}/template-designers/workcenter/)
+Use the browser-based interface for document creation and management.
+</div>
+
+<div class="topic-card" markdown="1">
+#### [Outlook Integration]({{ site.baseurl }}/template-designers/outlook-integration/)
+Create and respond to emails using ActiveDocs Templates and Snippets in Outlook.
+</div>
+
+</div>

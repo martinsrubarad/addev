@@ -1,0 +1,7 @@
+---
+permalink: /template-designers/local-template-options/llms.txt
+layout: null
+---
+# Local Template Options
+
+{% include content/template-designers/local-template-options.md %}

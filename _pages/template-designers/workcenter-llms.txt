@@ -1,0 +1,7 @@
+---
+permalink: /template-designers/workcenter/llms.txt
+layout: null
+---
+# WorkCenter and Document Wizard
+
+{% include content/template-designers/workcenter.md %}
