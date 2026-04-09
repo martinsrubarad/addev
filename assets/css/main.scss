@@ -1,10 +1,84 @@
 ---
 ---
 
+// ============================================
+// ActiveDocs Brand Palette
+// ============================================
+$obsidian:      #19191C;
+$obsidian-70:   #434345;
+$obsidian-50:   #B0B0B0;
+$obsidian-20:   #E8E8E8;
+$cerulean:      #23868E;
+$cerulean-70:   #6E9AA0;
+$cerulean-30:   #B5D6D8;
+$gold:          #A48266;
+
+// ============================================
+// Minimal Mistakes Variable Overrides
+// (Must be set before @import — MM uses !default)
+// ============================================
+$primary-color:             $cerulean;
+$text-color:                $obsidian-70;
+$muted-text-color:          mix($obsidian, #fff, 40%);
+$background-color:          #FEFEFE;
+$border-color:              $obsidian-20;
+$code-background-color:     #F4F6F6;
+$footer-background-color:   $obsidian;
+$link-color:                $cerulean;
+$link-color-hover:          darken($cerulean, 15%);
+$link-color-visited:        $cerulean;
+$masthead-link-color:       $obsidian;
+$masthead-link-color-hover: $cerulean;
+$navicon-link-color-hover:  $cerulean;
+
+// Typography
+$global-font-family:  'Helvetica Neue', Helvetica, Arial, sans-serif;
+$header-font-family:  'EB Garamond', Garamond, 'Times New Roman', serif;
+$caption-font-family: $global-font-family;
+
+// Type scale — 1.25 major third ratio
+$type-size-1: 2.441em;
+$type-size-2: 1.953em;
+$type-size-3: 1.563em;
+$type-size-4: 1.25em;
+$type-size-5: 1em;
+$type-size-6: 0.875em;
+$type-size-7: 0.8em;
+$type-size-8: 0.75em;
+
 @import "minimal-mistakes/skins/{{ site.minimal_mistakes_skin | default: 'default' }}";
 @import "minimal-mistakes";
 
-/* Hide site title text when logo is present */
+// ============================================
+// CSS Custom Properties
+// ============================================
+:root {
+  --color-obsidian:      #{$obsidian};
+  --color-obsidian-70:   #{$obsidian-70};
+  --color-obsidian-20:   #{$obsidian-20};
+  --color-cerulean:      #{$cerulean};
+  --color-cerulean-30:   #{$cerulean-30};
+  --color-gold:          #{$gold};
+}
+
+// ============================================
+// Global Typography
+// ============================================
+h1, h2, h3, h4, h5, h6 {
+  color: $obsidian;
+  font-weight: 400;
+}
+
+h1 { letter-spacing: -0.01em; }
+h2 { letter-spacing: -0.005em; }
+
+// ============================================
+// Masthead
+// ============================================
+.masthead {
+  border-bottom-color: $obsidian-20;
+}
+
 .site-title {
   .site-logo + .site-title-text,
   img + span {
@@ -15,44 +89,103 @@
 .masthead .site-title {
   display: flex;
   align-items: center;
+  font-size: 0;
 }
 
-/* If the logo is present, hide the text that follows it */
 .masthead .site-title img ~ span,
 .masthead .site-title img ~ .site-title-text {
   display: none;
 }
 
-/* Override: hide the title text entirely when logo exists.
-   Minimal Mistakes renders: <a class="site-title"><img ...>TITLE</a>
-   We hide the text node via font-size trick and restore img. */
 .site-logo + span {
   font-size: 0 !important;
-}
-
-.masthead .site-title {
-  font-size: 0;
 }
 
 .masthead .site-title img {
   font-size: 1rem;
 }
 
-/* Feature cards on home page */
+.greedy-nav a {
+  font-family: $global-font-family;
+  font-weight: 500;
+  letter-spacing: 0.01em;
+}
+
+// ============================================
+// Hero / Splash
+// ============================================
+.page__hero--overlay {
+  padding: 5em 0 3.5em;
+
+  .page__title {
+    font-weight: 400;
+    letter-spacing: -0.01em;
+  }
+
+  .page__lead {
+    font-family: $global-font-family;
+    font-weight: 300;
+    max-width: 52ch;
+  }
+}
+
+// ============================================
+// Buttons
+// ============================================
+.btn--primary {
+  background-color: $cerulean;
+  border-color: $cerulean;
+  font-family: $global-font-family;
+  font-weight: 500;
+  letter-spacing: 0.02em;
+  border-radius: 4px;
+  transition: background-color 0.15s ease;
+
+  &:hover,
+  &:visited:hover {
+    background-color: darken($cerulean, 12%);
+    border-color: darken($cerulean, 12%);
+  }
+}
+
+// ============================================
+// Feature Cards (home page)
+// ============================================
 .feature-cards {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
   gap: 2em;
 }
 
-.feature-card h3 a {
-  text-decoration: none;
-}
+.feature-card {
+  padding: 2em;
+  border: 1px solid $obsidian-20;
+  border-radius: 6px;
+  transition: border-color 0.2s ease;
 
-.feature-card h3 {
-  display: flex;
-  align-items: center;
-  gap: 0.4em;
+  &:hover {
+    border-color: $cerulean-70;
+  }
+
+  h3 {
+    display: flex;
+    align-items: center;
+    gap: 0.4em;
+    color: $obsidian;
+    margin-bottom: 0.5em;
+
+    a {
+      text-decoration: none;
+      color: inherit;
+
+      &:hover { color: $cerulean; }
+    }
+  }
+
+  p {
+    color: $obsidian-70;
+    line-height: 1.6;
+  }
 }
 
 .feature-icon {
@@ -67,44 +200,51 @@
   }
 }
 
-/* Wider content column for section landing pages */
+// ============================================
+// Wider Content for Landing Pages
+// ============================================
 body.wide-content #main {
   max-width: 1480px;
 }
 
-/* Topic cards for section pages */
+// ============================================
+// Topic Cards (section landing pages)
+// ============================================
 .topic-cards {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   gap: 1.5em;
-  margin-bottom: 2em;
+  margin-bottom: 2.5em;
 }
 
 .topic-card {
-  border: 1px solid #e1e4e8;
-  border-radius: 8px;
-  padding: 1.25em;
-  transition: box-shadow 0.2s ease, border-color 0.2s ease;
-}
+  border: 1px solid $obsidian-20;
+  border-radius: 6px;
+  padding: 1.5em;
+  transition: border-color 0.2s ease;
 
-.topic-card:hover {
-  border-color: #bbb;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
-}
+  &:hover {
+    border-color: $cerulean-70;
+  }
 
-.topic-card h4 {
-  margin-top: 0;
-  margin-bottom: 0.5em;
-}
+  h4 {
+    margin-top: 0;
+    margin-bottom: 0.5em;
 
-.topic-card h4 a {
-  text-decoration: none;
-}
+    a {
+      text-decoration: none;
+      color: $obsidian;
 
-.topic-card p {
-  margin: 0;
-  font-size: 0.9em;
-  color: #586069;
+      &:hover { color: $cerulean; }
+    }
+  }
+
+  p {
+    margin: 0;
+    font-size: 0.9em;
+    color: $obsidian-70;
+    line-height: 1.55;
+  }
 }
 
 @media (max-width: 900px) {
@@ -119,7 +259,119 @@ body.wide-content #main {
   }
 }
 
-/* Footer */
+// ============================================
+// Sidebar Navigation
+// ============================================
+.nav__list .nav__items {
+  .nav__sub-title {
+    font-family: $global-font-family;
+    font-size: 0.7em;
+    font-weight: 600;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: $obsidian-50;
+    border-bottom: 1px solid $obsidian-20;
+    padding-bottom: 0.4em;
+  }
+
+  a {
+    color: $obsidian-70;
+    font-size: 0.9em;
+
+    &:hover {
+      color: $cerulean;
+    }
+
+    &.active {
+      color: $cerulean;
+      font-weight: 600;
+    }
+  }
+}
+
+// ============================================
+// Table of Contents
+// ============================================
+.toc {
+  border: 1px solid $obsidian-20;
+  border-radius: 6px;
+
+  .nav__title {
+    background: $obsidian;
+    color: #fff;
+    font-family: $global-font-family;
+    font-size: 0.7em;
+    font-weight: 600;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    border-radius: 5px 5px 0 0;
+  }
+
+  a {
+    color: $obsidian-70;
+    font-size: 0.875em;
+
+    &:hover { color: $cerulean; }
+  }
+
+  .active a {
+    color: $cerulean;
+  }
+}
+
+// ============================================
+// Tables
+// ============================================
+.page__content {
+  table {
+    font-size: 0.9em;
+
+    th {
+      background-color: mix($cerulean-30, #fff, 18%);
+      color: $obsidian;
+      font-weight: 600;
+      font-family: $global-font-family;
+    }
+
+    td, th {
+      border-color: $obsidian-20;
+      padding: 0.6em 0.8em;
+    }
+
+    tr:nth-child(even) {
+      background-color: mix($obsidian-20, #fff, 15%);
+    }
+  }
+}
+
+// ============================================
+// Code
+// ============================================
+.page__content code {
+  font-size: 0.85em;
+  background: #F4F6F6;
+  border-radius: 3px;
+  color: $obsidian;
+}
+
+.page__content pre {
+  border: 1px solid $obsidian-20;
+  border-radius: 6px;
+}
+
+// ============================================
+// Footer
+// ============================================
+.page__footer {
+  color: $obsidian-50;
+
+  a {
+    color: $cerulean-30;
+
+    &:hover { color: #fff; }
+  }
+}
+
 .page__footer-follow {
   display: none;
 }
