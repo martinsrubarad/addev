@@ -1,7 +1,0 @@
----
-permalink: /template-designers/folders-and-organization/llms.txt
-layout: null
----
-# Folders and Organization
-
-{% include content/template-designers/folders-and-organization.md %}

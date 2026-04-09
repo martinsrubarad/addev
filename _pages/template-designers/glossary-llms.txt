@@ -1,7 +1,0 @@
----
-permalink: /template-designers/glossary/llms.txt
-layout: null
----
-# Glossary of Terms
-
-{% include content/template-designers/glossary.md %}

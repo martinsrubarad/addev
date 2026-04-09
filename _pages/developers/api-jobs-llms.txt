@@ -1,7 +1,0 @@
----
-permalink: /developers/api-jobs/llms.txt
-layout: null
----
-# Automated Document Production
-
-{% include content/developers/api-jobs.md %}
