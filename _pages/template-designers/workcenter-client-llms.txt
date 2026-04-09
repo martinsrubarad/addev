@@ -1,0 +1,7 @@
+---
+permalink: /template-designers/workcenter-client/llms.txt
+layout: null
+---
+# Introduction to WorkCenter Client
+
+{% include content/template-designers/workcenter-client.md %}
