@@ -360,14 +360,44 @@ body.wide-content #main {
 }
 
 .page__content pre {
-  background: $obsidian-20;
-  border: 1px solid darken($obsidian-20, 5%);
+  background: $obsidian;
+  border: none;
   border-radius: 6px;
 
   code {
     background: none;
-    color: $obsidian;
+    color: $obsidian-20;
   }
+}
+
+// Rouge syntax highlighting — light-on-dark overrides
+.highlight {
+  background: $obsidian;
+
+  pre {
+    background: $obsidian;
+  }
+
+  // Punctuation, brackets
+  .p { color: $obsidian-20; }
+  // Whitespace
+  .w { color: $obsidian-20; }
+  // String literals
+  .s, .s1, .s2 { color: $cerulean-30; }
+  // Property names / labels
+  .nl, .na, .nt { color: $cerulean-70; }
+  // Keywords
+  .k, .kd, .kn, .kp, .kr { color: $gold; }
+  // Numbers
+  .mi, .mf, .mh, .mo { color: $gold; }
+  // Comments
+  .c, .c1, .cm, .cs { color: $obsidian-50; }
+  // Operators
+  .o, .ow { color: $obsidian-20; }
+  // Names / identifiers
+  .n, .nb, .nc, .nf, .nn, .nv { color: #FEFEFE; }
+  // Errors
+  .err { color: #FEFEFE; background: none; }
 }
 
 // ============================================
