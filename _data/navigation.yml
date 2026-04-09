@@ -17,6 +17,42 @@ developers:
         url: /developers/api-jobs/
       - title: "Design Component Management"
         url: /developers/api-design-components/
+      - title: "Document Management"
+        url: /developers/api-documents/
+      - title: "Document Sets"
+        url: /developers/api-document-sets/
+      - title: "Delivery Management"
+        url: /developers/api-delivery/
+      - title: "Subsites and Users"
+        url: /developers/api-subsites-users/
+      - title: "Diagnostics and Site Management"
+        url: /developers/api-diagnostics/
+  - title: "Integration Guides"
+    children:
+      - title: "Getting Started"
+        url: /developers/integration-getting-started/
+      - title: "Answer Data Structures"
+        url: /developers/answer-data-structures/
+      - title: "Document Delivery"
+        url: /developers/document-delivery-guide/
+      - title: "Document Wizard Integration"
+        url: /developers/wizard-integration/
+      - title: "Wizard Event Handlers"
+        url: /developers/wizard-event-handlers/
+  - title: "Advanced Topics"
+    children:
+      - title: "Data View Web Services"
+        url: /developers/data-view-web-services/
+      - title: "Document Management Services"
+        url: /developers/document-management-services/
+      - title: "Custom Themes and Localization"
+        url: /developers/custom-themes-localization/
+      - title: "Custom Reporting"
+        url: /developers/custom-reporting/
+  - title: "Server Administration"
+    children:
+      - title: "PowerShell Server Configuration"
+        url: /developers/powershell-server-config/
 
 template-designers:
   - title: "Getting Started"

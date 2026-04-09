@@ -1,0 +1,7 @@
+---
+permalink: /developers/document-delivery-guide/llms.txt
+layout: null
+---
+# document delivery guide
+
+{% include content/developers/document-delivery-guide.md %}

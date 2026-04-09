@@ -1,0 +1,7 @@
+---
+permalink: /developers/powershell-server-config/llms.txt
+layout: null
+---
+# powershell server config
+
+{% include content/developers/powershell-server-config.md %}

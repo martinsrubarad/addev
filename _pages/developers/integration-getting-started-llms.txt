@@ -1,0 +1,7 @@
+---
+permalink: /developers/integration-getting-started/llms.txt
+layout: null
+---
+# integration getting started
+
+{% include content/developers/integration-getting-started.md %}

@@ -1,0 +1,7 @@
+---
+permalink: /developers/api-documents/llms.txt
+layout: null
+---
+# API documents
+
+{% include content/developers/api-documents.md %}

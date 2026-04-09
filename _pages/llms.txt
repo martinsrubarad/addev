@@ -13,37 +13,58 @@ layout: null
 
 ## All Pages
 
-### Developers
+### Developers — API Reference
 
-- [API Overview]({{ site.baseurl }}/developers/api-overview/llms.txt) — Key concepts, authentication, date formats, and general conventions.
-- [Automated Document Production]({{ site.baseurl }}/developers/api-jobs/llms.txt) — Create, monitor, and manage document assembly jobs.
-- [Design Component Management]({{ site.baseurl }}/developers/api-design-components/llms.txt) — Search and retrieve Design Components.
+- [API Overview]({{ site.baseurl }}/developers/api-overview/llms.txt) — Architecture, authentication, and conventions.
+- [Automated Document Production]({{ site.baseurl }}/developers/api-jobs/llms.txt) — Jobs API for document assembly.
+- [Design Component Management]({{ site.baseurl }}/developers/api-design-components/llms.txt) — Templates, snippets, data views.
+- [Document Management]({{ site.baseurl }}/developers/api-documents/llms.txt) — Document search, retrieval, and workflow.
+- [Document Sets]({{ site.baseurl }}/developers/api-document-sets/llms.txt) — Document set management.
+- [Delivery Management]({{ site.baseurl }}/developers/api-delivery/llms.txt) — Delivery queues and status.
+- [Subsites and Users]({{ site.baseurl }}/developers/api-subsites-users/llms.txt) — User and subsite management.
+- [Diagnostics]({{ site.baseurl }}/developers/api-diagnostics/llms.txt) — Health checks and site management.
+
+### Developers — Integration Guides
+
+- [Getting Started]({{ site.baseurl }}/developers/integration-getting-started/llms.txt) — First document creation walkthrough.
+- [Answer Data Structures]({{ site.baseurl }}/developers/answer-data-structures/llms.txt) — Field types and answer formats.
+- [Document Delivery]({{ site.baseurl }}/developers/document-delivery-guide/llms.txt) — Email, print, file delivery.
+- [Document Wizard Integration]({{ site.baseurl }}/developers/wizard-integration/llms.txt) — Embed and customize the wizard.
+- [Wizard Event Handlers]({{ site.baseurl }}/developers/wizard-event-handlers/llms.txt) — Step interception and validation.
+
+### Developers — Advanced Topics
+
+- [Data View Web Services]({{ site.baseurl }}/developers/data-view-web-services/llms.txt) — OData V4 data sources.
+- [Document Management Services]({{ site.baseurl }}/developers/document-management-services/llms.txt) — External DMS integrations.
+- [Custom Themes and Localization]({{ site.baseurl }}/developers/custom-themes-localization/llms.txt) — UI customization.
+- [Custom Reporting]({{ site.baseurl }}/developers/custom-reporting/llms.txt) — RDLC reports.
+- [PowerShell Server Configuration]({{ site.baseurl }}/developers/powershell-server-config/llms.txt) — Server administration.
 
 ### Template Designers
 
-- [Glossary of Terms]({{ site.baseurl }}/template-designers/glossary/llms.txt) — Key terminology used throughout ActiveDocs.
-- [Design Components]({{ site.baseurl }}/template-designers/design-components/llms.txt) — Templates, Template Sets, Snippets, Data Views, Design Item Sets, and Workflows.
-- [Design Items]({{ site.baseurl }}/template-designers/design-items/llms.txt) — Active Fields, Groups, Repeating Item Groups, Charts, Snippet Links, and Rules.
-- [Introduction to WorkCenter Client]({{ site.baseurl }}/template-designers/workcenter-client/llms.txt) — Access and navigate the WorkCenter Client.
-- [WorkCenter Sites]({{ site.baseurl }}/template-designers/workcenter-sites/llms.txt) — Add, remove, and manage WorkCenter Site connections.
-- [Folders and Organization]({{ site.baseurl }}/template-designers/folders-and-organization/llms.txt) — Create folders, configure approval workflows, and organize Design Components.
-- [Template Design Process]({{ site.baseurl }}/template-designers/template-design-process/llms.txt) — Plan, format, and import Word documents as Templates.
-- [The ActiveDocs Ribbon]({{ site.baseurl }}/template-designers/activedocs-ribbon/llms.txt) — ActiveDocs tab in Microsoft Word and its design tools.
-- [The Design Items Dialog]({{ site.baseurl }}/template-designers/design-items-dialog/llms.txt) — Primary interface for managing Design Items.
-- [Groups and Active Fields]({{ site.baseurl }}/template-designers/groups-and-active-fields/llms.txt) — Create Groups, Active Fields, calculations, and value lists.
-- [The Designer Pane]({{ site.baseurl }}/template-designers/designer-pane/llms.txt) — Locate and manage Design Item Markers.
-- [Data Views]({{ site.baseurl }}/template-designers/data-views/llms.txt) — Connect to external data sources.
-- [Importing Design Items]({{ site.baseurl }}/template-designers/importing-design-items/llms.txt) — Import from Templates, Design Item Sets, Data Views, or XML.
-- [Rules]({{ site.baseurl }}/template-designers/rules/llms.txt) — Control inclusion and exclusion of content and questions.
-- [Snippets and Snippet Links]({{ site.baseurl }}/template-designers/snippets-and-snippet-links/llms.txt) — Reusable content for documents.
-- [Wizard Step Management]({{ site.baseurl }}/template-designers/wizard-step-management/llms.txt) — Reorder and sub-group wizard steps.
-- [Repeating Item Groups]({{ site.baseurl }}/template-designers/repeating-item-groups/llms.txt) — Multiple instances of similar data.
-- [Local Template Options]({{ site.baseurl }}/template-designers/local-template-options/llms.txt) — Template-level wizard and document settings.
-- [Design Item Sets]({{ site.baseurl }}/template-designers/design-item-sets/llms.txt) — Shared Design Items across Templates.
-- [Template Sets]({{ site.baseurl }}/template-designers/template-sets/llms.txt) — Combine Templates for merged or multiple documents.
-- [Version Control]({{ site.baseurl }}/template-designers/version-control/llms.txt) — Version management and relationships.
-- [Exporting and Importing]({{ site.baseurl }}/template-designers/exporting-importing/llms.txt) — Move Design Components between sites.
-- [Workflows]({{ site.baseurl }}/template-designers/workflows/llms.txt) — Document drafting, approval, and finalization.
-- [Design Component Approval]({{ site.baseurl }}/template-designers/design-approval/llms.txt) — Approval process for Templates and Snippets.
+- [Glossary of Terms]({{ site.baseurl }}/template-designers/glossary/llms.txt) — Key terminology.
+- [Design Components]({{ site.baseurl }}/template-designers/design-components/llms.txt) — Templates, Snippets, Data Views.
+- [Design Items]({{ site.baseurl }}/template-designers/design-items/llms.txt) — Active Fields, Groups, Rules.
+- [Introduction to WorkCenter Client]({{ site.baseurl }}/template-designers/workcenter-client/llms.txt) — WorkCenter Client navigation.
+- [WorkCenter Sites]({{ site.baseurl }}/template-designers/workcenter-sites/llms.txt) — Site connections.
+- [Folders and Organization]({{ site.baseurl }}/template-designers/folders-and-organization/llms.txt) — Folders and categories.
+- [Template Design Process]({{ site.baseurl }}/template-designers/template-design-process/llms.txt) — Planning and importing templates.
+- [The ActiveDocs Ribbon]({{ site.baseurl }}/template-designers/activedocs-ribbon/llms.txt) — Design tools overview.
+- [The Design Items Dialog]({{ site.baseurl }}/template-designers/design-items-dialog/llms.txt) — Design Items management interface.
+- [Groups and Active Fields]({{ site.baseurl }}/template-designers/groups-and-active-fields/llms.txt) — Creating groups and fields.
+- [The Designer Pane]({{ site.baseurl }}/template-designers/designer-pane/llms.txt) — Marker management.
+- [Data Views]({{ site.baseurl }}/template-designers/data-views/llms.txt) — External data connections.
+- [Importing Design Items]({{ site.baseurl }}/template-designers/importing-design-items/llms.txt) — Import from various sources.
+- [Rules]({{ site.baseurl }}/template-designers/rules/llms.txt) — Conditional content and questions.
+- [Snippets and Snippet Links]({{ site.baseurl }}/template-designers/snippets-and-snippet-links/llms.txt) — Reusable content.
+- [Wizard Step Management]({{ site.baseurl }}/template-designers/wizard-step-management/llms.txt) — Step ordering.
+- [Repeating Item Groups]({{ site.baseurl }}/template-designers/repeating-item-groups/llms.txt) — Repeating data.
+- [Local Template Options]({{ site.baseurl }}/template-designers/local-template-options/llms.txt) — Template settings.
+- [Design Item Sets]({{ site.baseurl }}/template-designers/design-item-sets/llms.txt) — Shared design items.
+- [Template Sets]({{ site.baseurl }}/template-designers/template-sets/llms.txt) — Combined templates.
+- [Version Control]({{ site.baseurl }}/template-designers/version-control/llms.txt) — Version management.
+- [Exporting and Importing]({{ site.baseurl }}/template-designers/exporting-importing/llms.txt) — Component migration.
+- [Workflows]({{ site.baseurl }}/template-designers/workflows/llms.txt) — Document workflows.
+- [Design Component Approval]({{ site.baseurl }}/template-designers/design-approval/llms.txt) — Approval process.
 - [WorkCenter and Document Wizard]({{ site.baseurl }}/template-designers/workcenter/llms.txt) — Browser-based document creation.
-- [Outlook Integration]({{ site.baseurl }}/template-designers/outlook-integration/llms.txt) — ActiveDocs in Microsoft Outlook.
+- [Outlook Integration]({{ site.baseurl }}/template-designers/outlook-integration/llms.txt) — ActiveDocs in Outlook.
