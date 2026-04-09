@@ -1,7 +1,0 @@
----
-permalink: /template-designers/workcenter-sites/llms.txt
-layout: null
----
-# WorkCenter Sites
-
-{% include content/template-designers/workcenter-sites.md %}
