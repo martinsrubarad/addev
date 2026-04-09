@@ -67,7 +67,7 @@ $type-size-8: 0.75em;
 // ============================================
 h1, h2, h3, h4, h5, h6 {
   color: $obsidian;
-  font-weight: 400;
+  font-weight: bold;
 }
 
 h1 { letter-spacing: -0.01em; }
@@ -118,8 +118,12 @@ h2 { letter-spacing: -0.005em; }
 .page__hero--overlay {
   padding: 5em 0 3.5em;
 
+  .wrapper {
+    padding-left: 45px;
+  }
+
   .page__title {
-    font-weight: 400;
+    font-weight: bold;
     letter-spacing: -0.01em;
   }
 
