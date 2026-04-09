@@ -67,6 +67,53 @@
   }
 }
 
+/* Topic cards for section pages */
+.topic-cards {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.5em;
+  margin-bottom: 2em;
+}
+
+.topic-card {
+  border: 1px solid #e1e4e8;
+  border-radius: 8px;
+  padding: 1.25em;
+  transition: box-shadow 0.2s ease, border-color 0.2s ease;
+}
+
+.topic-card:hover {
+  border-color: #bbb;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+}
+
+.topic-card h4 {
+  margin-top: 0;
+  margin-bottom: 0.5em;
+}
+
+.topic-card h4 a {
+  text-decoration: none;
+}
+
+.topic-card p {
+  margin: 0;
+  font-size: 0.9em;
+  color: #586069;
+}
+
+@media (max-width: 900px) {
+  .topic-cards {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 600px) {
+  .topic-cards {
+    grid-template-columns: 1fr;
+  }
+}
+
 /* Footer */
 .page__footer-follow {
   display: none;
