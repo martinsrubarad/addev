@@ -53,7 +53,9 @@ This is useful for integrations where your application already has the data and 
 
 ## Document Wizard in Popup Windows
 
-For a seamless user experience, launch the Document Wizard in a popup window using JavaScript. This keeps the user in your application context while providing the full wizard interface.
+For a seamless user experience, launch the Document Wizard in a popup window. This keeps the user in your application context while providing the full wizard interface.
+
+> **NOTE:** The examples in this section use client-side JavaScript because they run in the user's browser to open windows and handle URL redirects.
 
 ```javascript
 function openDocumentWizard(templateId, answers) {
@@ -219,37 +221,51 @@ https://your-server/activedocs/AutoLogin.aspx
 
 The `redirect` parameter specifies where to send the user after authentication. This can be any ActiveDocs page, including the Document Wizard with its own query string parameters.
 
-### JavaScript Example
+### Server-Side Example
 
-```javascript
-async function autoLoginAndOpenWizard(user, templateId) {
-  // Generate JWT (this should typically be done server-side)
-  const payload = {
-    sub: user.login,
-    name: user.displayName,
-    email: user.email,
-    iss: "your-application",
-    aud: "activedocs",
-    iat: Math.floor(Date.now() / 1000),
-    exp: Math.floor(Date.now() / 1000) + 300 // 5 minutes
-  };
+```csharp
+using System.IdentityModel.Tokens.Jwt;
+using System.Security.Claims;
+using Microsoft.IdentityModel.Tokens;
 
-  // Sign the token server-side and return it
-  const response = await fetch("/api/generate-activedocs-token", {
-    method: "POST",
-    headers: { "Content-Type": "application/json" },
-    body: JSON.stringify(payload)
-  });
-  const { token } = await response.json();
+public string GenerateAutoLoginUrl(string userLogin, string displayName, 
+    string email, string templateId)
+{
+    // Generate JWT token
+    var key = new SymmetricSecurityKey(
+        Encoding.UTF8.GetBytes("your-shared-secret-key"));
+    var credentials = new SigningCredentials(key, SecurityAlgorithms.HmacSha256);
 
-  // Build the auto-login URL
-  const wizardUrl = `/activedocs/QuestionWizard.aspx?TemplateID=${templateId}`;
-  const loginUrl = `https://your-server/activedocs/AutoLogin.aspx`
-    + `?token=${encodeURIComponent(token)}`
-    + `&redirect=${encodeURIComponent(wizardUrl)}`;
+    var claims = new[]
+    {
+        new Claim(JwtRegisteredClaimNames.Sub, userLogin),
+        new Claim(JwtRegisteredClaimNames.Name, displayName),
+        new Claim(JwtRegisteredClaimNames.Email, email),
+        new Claim(JwtRegisteredClaimNames.Iss, "your-application"),
+        new Claim(JwtRegisteredClaimNames.Aud, "activedocs")
+    };
 
-  window.location.href = loginUrl;
+    var token = new JwtSecurityToken(
+        claims: claims,
+        expires: DateTime.UtcNow.AddMinutes(5),
+        signingCredentials: credentials);
+
+    var tokenString = new JwtSecurityTokenHandler().WriteToken(token);
+
+    // Build the auto-login URL
+    var wizardUrl = $"/activedocs/QuestionWizard.aspx?TemplateID={templateId}";
+    var loginUrl = $"https://your-server/activedocs/AutoLogin.aspx"
+        + $"?token={Uri.EscapeDataString(tokenString)}"
+        + $"&redirect={Uri.EscapeDataString(wizardUrl)}";
+
+    return loginUrl;
 }
+```
+
+In an ASP.NET controller, redirect the user to the returned URL:
+
+```csharp
+return Redirect(GenerateAutoLoginUrl(user.Login, user.Name, user.Email, templateId));
 ```
 
 ## Programmatic WorkCenter Actions
