@@ -57,3 +57,35 @@ template-designers:
         url: /template-designers/importing-design-items/
       - title: "Rules"
         url: /template-designers/rules/
+  - title: "Snippets"
+    children:
+      - title: "Snippets and Snippet Links"
+        url: /template-designers/snippets-and-snippet-links/
+      - title: "Wizard Step Management"
+        url: /template-designers/wizard-step-management/
+  - title: "Advanced Design"
+    children:
+      - title: "Repeating Item Groups"
+        url: /template-designers/repeating-item-groups/
+      - title: "Local Template Options"
+        url: /template-designers/local-template-options/
+      - title: "Design Item Sets"
+        url: /template-designers/design-item-sets/
+      - title: "Template Sets"
+        url: /template-designers/template-sets/
+  - title: "Management"
+    children:
+      - title: "Version Control"
+        url: /template-designers/version-control/
+      - title: "Exporting and Importing"
+        url: /template-designers/exporting-importing/
+      - title: "Workflows"
+        url: /template-designers/workflows/
+      - title: "Design Component Approval"
+        url: /template-designers/design-approval/
+  - title: "WorkCenter"
+    children:
+      - title: "WorkCenter and Document Wizard"
+        url: /template-designers/workcenter/
+      - title: "Outlook Integration"
+        url: /template-designers/outlook-integration/

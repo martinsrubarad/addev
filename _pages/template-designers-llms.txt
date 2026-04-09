@@ -31,3 +31,27 @@ No-Code Intelligent Template Building. Design and build intelligent templates wi
 - [Data Views]({{ site.baseurl }}/template-designers/data-views/llms.txt) — Connect Templates to external data sources like databases, spreadsheets, and web services.
 - [Importing Design Items]({{ site.baseurl }}/template-designers/importing-design-items/llms.txt) — Import Design Items from other Templates, Design Item Sets, Data Views, or XML files.
 - [Rules]({{ site.baseurl }}/template-designers/rules/llms.txt) — Control inclusion and exclusion of content and questions based on Active Field values.
+
+## Snippets
+
+- [Snippets and Snippet Links]({{ site.baseurl }}/template-designers/snippets-and-snippet-links/llms.txt) — Create, manage, and link reusable content for document generation.
+- [Wizard Step Management]({{ site.baseurl }}/template-designers/wizard-step-management/llms.txt) — Reorder and sub-group Document Wizard steps.
+
+## Advanced Design
+
+- [Repeating Item Groups]({{ site.baseurl }}/template-designers/repeating-item-groups/llms.txt) — Collect multiple instances of similar data with support for nesting.
+- [Local Template Options]({{ site.baseurl }}/template-designers/local-template-options/llms.txt) — Configure Document Wizard behavior and Template-level settings.
+- [Design Item Sets]({{ site.baseurl }}/template-designers/design-item-sets/llms.txt) — Share and maintain Design Items across multiple Templates and Snippets.
+- [Template Sets]({{ site.baseurl }}/template-designers/template-sets/llms.txt) — Combine Templates to generate merged or multiple documents with attachments.
+
+## Management
+
+- [Version Control]({{ site.baseurl }}/template-designers/version-control/llms.txt) — Manage Design Component versions, relationships, and publishing.
+- [Exporting and Importing]({{ site.baseurl }}/template-designers/exporting-importing/llms.txt) — Move Design Components between WorkCenter Sites.
+- [Workflows]({{ site.baseurl }}/template-designers/workflows/llms.txt) — Control document drafting, approval, and finalization.
+- [Design Component Approval]({{ site.baseurl }}/template-designers/design-approval/llms.txt) — Configure and manage the approval process for Templates and Snippets.
+
+## WorkCenter
+
+- [WorkCenter and Document Wizard]({{ site.baseurl }}/template-designers/workcenter/llms.txt) — Browser-based interface for document creation and management.
+- [Outlook Integration]({{ site.baseurl }}/template-designers/outlook-integration/llms.txt) — Create and respond to emails using ActiveDocs in Outlook.

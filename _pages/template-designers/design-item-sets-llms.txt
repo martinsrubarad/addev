@@ -1,0 +1,7 @@
+---
+permalink: /template-designers/design-item-sets/llms.txt
+layout: null
+---
+# Design Item Sets
+
+{% include content/template-designers/design-item-sets.md %}

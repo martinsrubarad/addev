@@ -1,0 +1,7 @@
+---
+permalink: /template-designers/design-approval/llms.txt
+layout: null
+---
+# Design Component Approval
+
+{% include content/template-designers/design-approval.md %}

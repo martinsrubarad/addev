@@ -1,0 +1,7 @@
+---
+permalink: /template-designers/version-control/llms.txt
+layout: null
+---
+# Version Control and Relationships
+
+{% include content/template-designers/version-control.md %}

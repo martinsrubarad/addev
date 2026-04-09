@@ -1,0 +1,7 @@
+---
+permalink: /template-designers/outlook-integration/llms.txt
+layout: null
+---
+# Outlook Integration
+
+{% include content/template-designers/outlook-integration.md %}

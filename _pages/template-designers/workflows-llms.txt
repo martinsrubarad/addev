@@ -1,0 +1,7 @@
+---
+permalink: /template-designers/workflows/llms.txt
+layout: null
+---
+# Workflows
+
+{% include content/template-designers/workflows.md %}

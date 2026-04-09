@@ -35,3 +35,15 @@ layout: null
 - [Data Views]({{ site.baseurl }}/template-designers/data-views/llms.txt) — Connect to external data sources.
 - [Importing Design Items]({{ site.baseurl }}/template-designers/importing-design-items/llms.txt) — Import from Templates, Design Item Sets, Data Views, or XML.
 - [Rules]({{ site.baseurl }}/template-designers/rules/llms.txt) — Control inclusion and exclusion of content and questions.
+- [Snippets and Snippet Links]({{ site.baseurl }}/template-designers/snippets-and-snippet-links/llms.txt) — Reusable content for documents.
+- [Wizard Step Management]({{ site.baseurl }}/template-designers/wizard-step-management/llms.txt) — Reorder and sub-group wizard steps.
+- [Repeating Item Groups]({{ site.baseurl }}/template-designers/repeating-item-groups/llms.txt) — Multiple instances of similar data.
+- [Local Template Options]({{ site.baseurl }}/template-designers/local-template-options/llms.txt) — Template-level wizard and document settings.
+- [Design Item Sets]({{ site.baseurl }}/template-designers/design-item-sets/llms.txt) — Shared Design Items across Templates.
+- [Template Sets]({{ site.baseurl }}/template-designers/template-sets/llms.txt) — Combine Templates for merged or multiple documents.
+- [Version Control]({{ site.baseurl }}/template-designers/version-control/llms.txt) — Version management and relationships.
+- [Exporting and Importing]({{ site.baseurl }}/template-designers/exporting-importing/llms.txt) — Move Design Components between sites.
+- [Workflows]({{ site.baseurl }}/template-designers/workflows/llms.txt) — Document drafting, approval, and finalization.
+- [Design Component Approval]({{ site.baseurl }}/template-designers/design-approval/llms.txt) — Approval process for Templates and Snippets.
+- [WorkCenter and Document Wizard]({{ site.baseurl }}/template-designers/workcenter/llms.txt) — Browser-based document creation.
+- [Outlook Integration]({{ site.baseurl }}/template-designers/outlook-integration/llms.txt) — ActiveDocs in Microsoft Outlook.

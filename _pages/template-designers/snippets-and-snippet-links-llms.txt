@@ -1,0 +1,7 @@
+---
+permalink: /template-designers/snippets-and-snippet-links/llms.txt
+layout: null
+---
+# Snippets and Snippet Links
+
+{% include content/template-designers/snippets-and-snippet-links.md %}
