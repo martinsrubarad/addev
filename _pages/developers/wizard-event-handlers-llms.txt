@@ -1,0 +1,7 @@
+---
+permalink: /developers/wizard-event-handlers/llms.txt
+layout: null
+---
+# wizard event handlers
+
+{% include content/developers/wizard-event-handlers.md %}

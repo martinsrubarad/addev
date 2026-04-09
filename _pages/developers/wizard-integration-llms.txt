@@ -1,0 +1,7 @@
+---
+permalink: /developers/wizard-integration/llms.txt
+layout: null
+---
+# wizard integration
+
+{% include content/developers/wizard-integration.md %}

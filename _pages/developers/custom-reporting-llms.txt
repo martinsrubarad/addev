@@ -1,0 +1,7 @@
+---
+permalink: /developers/custom-reporting/llms.txt
+layout: null
+---
+# custom reporting
+
+{% include content/developers/custom-reporting.md %}

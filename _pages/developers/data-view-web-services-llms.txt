@@ -1,0 +1,7 @@
+---
+permalink: /developers/data-view-web-services/llms.txt
+layout: null
+---
+# data view web services
+
+{% include content/developers/data-view-web-services.md %}

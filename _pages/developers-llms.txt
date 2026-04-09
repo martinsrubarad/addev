@@ -8,6 +8,30 @@ Build integrated document automation solutions fast. Leverage the ActiveDocs API
 
 ## API Reference
 
-- [API Overview]({{ site.baseurl }}/developers/api-overview/llms.txt) — Key concepts, authentication, date formats, and general conventions for working with the ActiveDocs API.
-- [Automated Document Production]({{ site.baseurl }}/developers/api-jobs/llms.txt) — Create, monitor, and manage document assembly jobs — search jobs, check status, retrieve documents, and handle errors.
-- [Design Component Management]({{ site.baseurl }}/developers/api-design-components/llms.txt) — Search and retrieve Design Components such as Templates, Template Sets, Snippets, Data Views, and Workflows.
+- [API Overview]({{ site.baseurl }}/developers/api-overview/llms.txt) — Architecture, authentication, conventions, and error handling.
+- [Automated Document Production]({{ site.baseurl }}/developers/api-jobs/llms.txt) — Create, monitor, and manage document assembly jobs.
+- [Design Component Management]({{ site.baseurl }}/developers/api-design-components/llms.txt) — Search, retrieve, import, and export templates and design components.
+- [Document Management]({{ site.baseurl }}/developers/api-documents/llms.txt) — Search, retrieve, update documents, answers, properties, and workflow.
+- [Document Sets]({{ site.baseurl }}/developers/api-document-sets/llms.txt) — Manage groups of related documents with attachments.
+- [Delivery Management]({{ site.baseurl }}/developers/api-delivery/llms.txt) — Delivery queues and document delivery management.
+- [Subsites and Users]({{ site.baseurl }}/developers/api-subsites-users/llms.txt) — Subsite, user, and authentication management.
+- [Diagnostics and Site Management]({{ site.baseurl }}/developers/api-diagnostics/llms.txt) — Health checks, ADP stats, and site configuration.
+
+## Integration Guides
+
+- [Getting Started]({{ site.baseurl }}/developers/integration-getting-started/llms.txt) — Set up API access and create your first document.
+- [Answer Data Structures]({{ site.baseurl }}/developers/answer-data-structures/llms.txt) — Field types, repeating groups, nested answers, images.
+- [Document Delivery]({{ site.baseurl }}/developers/document-delivery-guide/llms.txt) — Email, print, file system, and async delivery.
+- [Document Wizard Integration]({{ site.baseurl }}/developers/wizard-integration/llms.txt) — Embed the wizard, query strings, and redirects.
+- [Wizard Event Handlers]({{ site.baseurl }}/developers/wizard-event-handlers/llms.txt) — Step interception, validation, and data injection.
+
+## Advanced Topics
+
+- [Data View Web Services]({{ site.baseurl }}/developers/data-view-web-services/llms.txt) — OData V4 custom data sources.
+- [Document Management Services]({{ site.baseurl }}/developers/document-management-services/llms.txt) — Adobe Sign, Alfresco, AWS S3 integrations.
+- [Custom Themes and Localization]({{ site.baseurl }}/developers/custom-themes-localization/llms.txt) — WorkCenter appearance and language.
+- [Custom Reporting]({{ site.baseurl }}/developers/custom-reporting/llms.txt) — RDLC reports with database views.
+
+## Server Administration
+
+- [PowerShell Server Configuration]({{ site.baseurl }}/developers/powershell-server-config/llms.txt) — Server settings, applications, and environments.

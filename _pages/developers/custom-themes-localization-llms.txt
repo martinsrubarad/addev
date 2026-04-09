@@ -1,0 +1,7 @@
+---
+permalink: /developers/custom-themes-localization/llms.txt
+layout: null
+---
+# custom themes localization
+
+{% include content/developers/custom-themes-localization.md %}

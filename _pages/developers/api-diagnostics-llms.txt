@@ -1,0 +1,7 @@
+---
+permalink: /developers/api-diagnostics/llms.txt
+layout: null
+---
+# API diagnostics
+
+{% include content/developers/api-diagnostics.md %}
