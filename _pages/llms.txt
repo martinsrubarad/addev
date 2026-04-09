@@ -1,0 +1,29 @@
+---
+permalink: /llms.txt
+layout: null
+---
+# ActiveDocs Documentation
+
+> Explore guides and tutorials to start building with ActiveDocs.
+
+## Sections
+
+- [Developers]({{ site.baseurl }}/developers/llms.txt) — Build integrated document automation solutions with the ActiveDocs API.
+- [Template Designers]({{ site.baseurl }}/template-designers/llms.txt) — No-code intelligent template building.
+
+## All Pages
+
+### Developers
+
+- [API Overview]({{ site.baseurl }}/developers/api-overview/llms.txt) — Key concepts, authentication, date formats, and general conventions.
+- [Automated Document Production]({{ site.baseurl }}/developers/api-jobs/llms.txt) — Create, monitor, and manage document assembly jobs.
+- [Design Component Management]({{ site.baseurl }}/developers/api-design-components/llms.txt) — Search and retrieve Design Components.
+
+### Template Designers
+
+- [Glossary of Terms]({{ site.baseurl }}/template-designers/glossary/llms.txt) — Key terminology used throughout ActiveDocs.
+- [Design Components]({{ site.baseurl }}/template-designers/design-components/llms.txt) — Templates, Template Sets, Snippets, Data Views, Design Item Sets, and Workflows.
+- [Design Items]({{ site.baseurl }}/template-designers/design-items/llms.txt) — Active Fields, Groups, Repeating Item Groups, Charts, Snippet Links, and Rules.
+- [Introduction to WorkCenter Client]({{ site.baseurl }}/template-designers/workcenter-client/llms.txt) — Access and navigate the WorkCenter Client.
+- [WorkCenter Sites]({{ site.baseurl }}/template-designers/workcenter-sites/llms.txt) — Add, remove, and manage WorkCenter Site connections.
+- [Folders and Organization]({{ site.baseurl }}/template-designers/folders-and-organization/llms.txt) — Create folders, configure approval workflows, and organize Design Components.
