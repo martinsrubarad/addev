@@ -67,4 +67,39 @@ Click **OK** to save.
 
 ## Working with Categories
 
-Categories provide an additional way to classify and organize Design Components beyond folder structure. They allow you to tag Design Components with metadata that can be used for filtering and searching.
+Categories are keywords or phrases that help you keep track of different types of Design Components that are related but may be stored in different folders. You can use Categories to organize Design Components in each WorkCenter Site.
+
+### Creating a Category
+
+1. In the **ActiveDocs WorkCenter Client Navigation pane**, select the **Categories node**.
+2. On the **Home Ribbon**, click **New > Category**. Alternatively, right-click the **Categories node** and select **New > Category** from the shortcut menu.
+3. Under the **General tab**:
+   - **Name** — Enter a name for the Category.
+   - **Description** — Optionally provide a description for the Category.
+   - **WorkCenter Template Category** — Optionally select to enable users to select and run templates from Categories in the WorkCenter.
+   - **Outlook Template Category** — Optionally select to make the Category available in Microsoft Outlook for ActiveDocs email generation.
+4. Under the **Document Wizard Order tab**:
+   - **Order Snippets in alphabetical order** — Select to display Snippets in alphabetical order.
+   - **Display the Snippets in the following order** — Select to display Snippets in a custom order.
+   - Use **Move Up / Move Down** to change the display order.
+5. Click **OK**.
+
+> **NOTE:** To modify a Category, right-click it and select **Properties** from the shortcut menu. Delete it by selecting **Delete** from the shortcut menu.
+
+### Applying a Category
+
+1. Select one or more Design Components from the **List pane**, then right-click and select **Categorize** from the shortcut menu.
+2. Select one or more desired categories.
+3. Click **OK**.
+
+> **NOTE:** To break the link between a Design Component and a Category, do not delete the Design Component in the Category list. Instead, edit the properties of the Design Component, click the **Categories tab**, and deselect the Category or click **Clear**.
+
+> **NOTE:** Exporting and importing a Design Component between WorkCenter Sites retains its associated Categories.
+
+## Deleted Items
+
+The **Deleted Items node** holds deleted Design Components prior to final purging. To restore a Design Component to its original location, select the item and click **Restore** on the **Home Ribbon**. Alternatively, right-click and select **Restore** from the shortcut menu.
+
+## Search Node
+
+The **Search node** displays Design Components based on the search criteria used in the Search text box and the Design Component type selected on the **WorkCenter Client Search Tab Ribbon**.

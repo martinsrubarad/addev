@@ -1,0 +1,7 @@
+---
+permalink: /template-designers/importing-design-items/llms.txt
+layout: null
+---
+# Importing Design Items
+
+{% include content/template-designers/importing-design-items.md %}

@@ -1,0 +1,7 @@
+---
+permalink: /template-designers/designer-pane/llms.txt
+layout: null
+---
+# The Designer Pane
+
+{% include content/template-designers/designer-pane.md %}

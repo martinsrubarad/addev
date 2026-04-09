@@ -1,0 +1,7 @@
+---
+permalink: /template-designers/template-design-process/llms.txt
+layout: null
+---
+# Template Design Process
+
+{% include content/template-designers/template-design-process.md %}

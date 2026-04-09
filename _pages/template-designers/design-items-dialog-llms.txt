@@ -1,0 +1,7 @@
+---
+permalink: /template-designers/design-items-dialog/llms.txt
+layout: null
+---
+# The Design Items Dialog
+
+{% include content/template-designers/design-items-dialog.md %}

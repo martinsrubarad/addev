@@ -1,0 +1,7 @@
+---
+permalink: /template-designers/data-views/llms.txt
+layout: null
+---
+# Data Views
+
+{% include content/template-designers/data-views.md %}

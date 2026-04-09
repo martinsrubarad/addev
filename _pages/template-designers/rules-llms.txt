@@ -1,0 +1,7 @@
+---
+permalink: /template-designers/rules/llms.txt
+layout: null
+---
+# Rules
+
+{% include content/template-designers/rules.md %}
