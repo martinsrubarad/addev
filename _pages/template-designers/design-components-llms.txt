@@ -1,7 +1,0 @@
----
-permalink: /template-designers/design-components/llms.txt
-layout: null
----
-# Design Components
-
-{% include content/template-designers/design-components.md %}
