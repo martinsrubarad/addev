@@ -1,0 +1,13 @@
+---
+permalink: /developers/llms.txt
+layout: null
+---
+# Developers
+
+Build integrated document automation solutions fast. Leverage the ActiveDocs API to integrate document automation directly into your applications and workflows. The API is available with the **Solutions Studio** license.
+
+## API Reference
+
+- [API Overview]({{ site.baseurl }}/developers/api-overview/llms.txt) — Key concepts, authentication, date formats, and general conventions for working with the ActiveDocs API.
+- [Automated Document Production]({{ site.baseurl }}/developers/api-jobs/llms.txt) — Create, monitor, and manage document assembly jobs — search jobs, check status, retrieve documents, and handle errors.
+- [Design Component Management]({{ site.baseurl }}/developers/api-design-components/llms.txt) — Search and retrieve Design Components such as Templates, Template Sets, Snippets, Data Views, and Workflows.
