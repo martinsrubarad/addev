@@ -81,6 +81,8 @@
         .tonal-shift { transition: background-color 0.3s ease; }
         /* Precision typography for Newsreader */
         .hero-headline { font-family: 'Newsreader', serif; font-weight: 400; letter-spacing: -0.02em; }
+        .reveal-item { opacity: 0; transform: translateY(32px); transition: opacity 0.7s ease-out, transform 0.7s ease-out; }
+        .reveal-item.revealed { opacity: 1; transform: translateY(0); }
     </style>
 </head>
 <body class="bg-surface text-on-surface selection:bg-on-primary-container selection:text-white">
@@ -133,9 +135,9 @@
 </div>
 </header>
 <!-- Structural Proof Points -->
-<section class="bg-surface py-32 px-16">
+<section class="bg-surface py-32 px-16" id="proof-points">
 <div class="grid grid-cols-1 md:grid-cols-12 gap-16">
-<div class="md:col-span-5 space-y-8">
+<div class="md:col-span-5 space-y-8 reveal-item" style="transition-delay: 0ms;">
 <div class="h-px w-24 bg-on-primary-container"></div>
 <h2 class="hero-headline text-4xl text-primary">Powerful Automation, Guided by Experience</h2>
 <p class="text-on-surface-variant leading-loose font-light">
@@ -144,17 +146,17 @@
 </div>
 <div class="md:col-span-7 grid grid-cols-1 sm:grid-cols-2 gap-1 px-8 md:px-0">
 <!-- Bento-lite Grid for Features -->
-<div class="bg-surface-container-low p-12 flex flex-col justify-between min-h-[300px]">
+<div class="bg-surface-container-low p-12 flex flex-col justify-between min-h-[300px] reveal-item" style="transition-delay: 150ms;">
 <img src="images/icon-document.png" alt="" class="h-12 w-12 object-contain"/>
 <h3 class="font-headline text-2xl">Built Inside Word</h3>
 <p class="text-sm text-on-surface-variant uppercase tracking-widest">Templates in a familiar environment</p>
 </div>
-<div class="bg-primary text-white p-12 flex flex-col justify-between min-h-[300px]">
+<div class="bg-primary text-white p-12 flex flex-col justify-between min-h-[300px] reveal-item" style="transition-delay: 300ms;">
 <img src="images/icon-api.png" alt="" class="h-12 w-12 object-contain"/>
 <h3 class="font-headline text-2xl">Enterprise API</h3>
 <p class="text-sm text-white/60 uppercase tracking-widest">Integrate with any system</p>
 </div>
-<div class="bg-surface-container-high p-12 flex flex-col justify-between min-h-[300px] sm:col-span-2">
+<div class="bg-surface-container-high p-12 flex flex-col justify-between min-h-[300px] sm:col-span-2 reveal-item" style="transition-delay: 450ms;">
 <div class="flex justify-between items-start">
 <img src="images/icon-compliance.png" alt="" class="h-12 w-12 object-contain"/>
 <div class="text-right">
@@ -249,6 +251,22 @@
 </div>
 </footer>
 <script>
+(function() {
+  // Scroll reveal animation
+  var observer = new IntersectionObserver(function(entries) {
+    entries.forEach(function(entry) {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('revealed');
+        observer.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.15 });
+
+  document.querySelectorAll('.reveal-item').forEach(function(el) {
+    observer.observe(el);
+  });
+})();
+
 (function() {
   // Mobile menu toggle
   var menuBtn = document.getElementById('mobile-menu-btn');
