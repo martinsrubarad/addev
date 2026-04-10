@@ -609,7 +609,7 @@ ul.mil-category-list a.mil-active {
     display: none;
 }
 span.wpcf7-not-valid-tip {
-    color: rgb(255, 152, 0) !important;
+    color: #dc3232 !important;
 }
 
 @media (max-width: 767px){
@@ -656,20 +656,19 @@ span.wpcf7-not-valid-tip {
 	z-index: 3 !important;
 }
 .bouncing-icon a.elementor-icon{
-  animation: bounce 0.8s infinite alternate; /* Applies the animation */
+  animation: float 2.4s ease-in-out infinite;
 	cursor: pointer !important;
 }
 .bouncing-icon a.elementor-icon:hover {
 	color: #fff !important;
 }
 
-/* Defining the bounce motion */
-@keyframes bounce {
-  from {
-    transform: translateY(10px); /* Start position */
+@keyframes float {
+  0%, 100% {
+    transform: translateY(0);
   }
-  to {
-    transform: translateY(-10px); /* Peak of the bounce */
+  50% {
+    transform: translateY(-8px);
   }
 }		</style>
 		<script src="./Document Automation Software _ Enterprise Document Solutions_files/wp-emoji-release.min.js.download" defer=""></script>
