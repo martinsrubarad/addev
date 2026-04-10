@@ -115,8 +115,8 @@
 <button class="bg-primary text-on-primary px-8 py-3 text-sm font-label tracking-widest uppercase hover:bg-on-primary-container transition-colors duration-300 mt-4">Contact Us</button>
 </div>
 <!-- Hero Section: Understated Strength -->
-<header class="relative min-h-screen flex flex-col justify-center px-16 pt-24 overflow-hidden">
-<div class="absolute inset-0 z-0">
+<header class="relative min-h-screen flex flex-col justify-center px-16 pt-24 overflow-hidden bg-black">
+<div class="absolute inset-0 z-0 opacity-0 transition-opacity duration-[2s] ease-out" id="hero-bg">
 <img alt="" class="w-full h-full object-cover" src="images/adlbckg.png"/>
 </div>
 <div class="relative z-10 max-w-4xl space-y-12">
@@ -251,6 +251,13 @@
 </div>
 </footer>
 <script>
+(function() {
+  // Hero background fade-in from black
+  setTimeout(function() {
+    document.getElementById('hero-bg').style.opacity = '1';
+  }, 500);
+})();
+
 (function() {
   // Scroll reveal animation
   var observer = new IntersectionObserver(function(entries) {
