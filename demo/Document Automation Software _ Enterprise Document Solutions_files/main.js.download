@@ -1,0 +1,1095 @@
+/* -------------------------------------------
+Name: 		Ashley
+Version:    1.0.1
+Author:		bslthemes
+------------------------------------------- */
+
+( function( $ ) {
+  'use strict';
+    
+    /***************************
+
+    color variables
+
+    ***************************/
+    var variables = {
+        "accentColor": 'rgba(255, 152, 0, 1)',
+        "darkColor": '#000',
+        "lightColor" : '#fff'
+    }
+
+    /* Custom Colors */
+    if ( $('.mil-wrapper').data('dark-color') ) {
+        variables.darkColor = $('.mil-wrapper').data('dark-color');
+    }
+    if ( $('.mil-wrapper').data('accent-color') ) {
+        variables.accentColor = $('.mil-wrapper').data('accent-color');
+    }
+    if ( $('.mil-wrapper').data('light-color') ) {
+        variables.lightColor = $('.mil-wrapper').data('light-color');
+    }
+
+    /* Elementor Editor */
+    var elementor = 0;
+    if ( window.location.href.indexOf('/?elementor-preview=') > -1 || window.location.href.indexOf('&action=elementor') > -1 ) {
+        elementor = 1;
+    }
+
+    /* Elementor Section Dark */
+    $('.elementor-section.mil-dark-bg > .elementor-container').addClass('mi-invert-fix');
+    $('.elementor-element.mil-dark-bg > div').addClass('mi-invert-fix');
+
+    /***************************
+
+    register gsap plugins
+
+    ***************************/
+    gsap.registerPlugin(ScrollTrigger, ScrollToPlugin);
+
+    /***************************
+
+    preloader
+    
+    ***************************/
+    var timeline = gsap.timeline();
+
+    if ( $('.mil-preloader-animation').length ) {
+    timeline.to(".mil-preloader-animation", {
+        opacity: 1,
+    });
+    }
+
+    if ( $('.mil-animation-1 .mil-h3').length ) {
+    timeline.fromTo(
+        ".mil-animation-1 .mil-h3", {
+            y: "30px",
+            opacity: 0
+        }, {
+            y: "0px",
+            opacity: 1,
+            stagger: 0.4
+        },
+    );
+    timeline.to(".mil-animation-1 .mil-h3", {
+        opacity: 0,
+        y: '-30',
+    }, "+=.3");
+    }
+
+    if ( $('.mil-reveal-box').length ) {
+    timeline.fromTo(".mil-reveal-box", 0.1, {
+        opacity: 0,
+    }, {
+        opacity: 1,
+        x: '-30',
+    });
+    timeline.to(".mil-reveal-box", 0.45, {
+        width: "100%",
+        x: 0,
+    }, "+=.1");
+    timeline.to(".mil-reveal-box", {
+        right: "0"
+    });
+    timeline.to(".mil-reveal-box", 0.3, {
+        width: "0%"
+    });
+    }
+
+    if ( $('.mil-animation-2 .mil-h3').length ) {
+    timeline.fromTo(".mil-animation-2 .mil-h3", {
+        opacity: 0,
+    }, {
+        opacity: 1,
+    }, "-=.5");
+    timeline.to(".mil-animation-2 .mil-h3", 0.6, {
+        opacity: 0,
+        y: '-30'
+    }, "+=.5");
+    }
+
+    if ( $('.mil-preloader').length ) {
+    timeline.to(".mil-preloader", 0.8, {
+        opacity: 0,
+        ease: 'sine',
+    }, "+=.2");
+    }
+    
+    if ( $('.mil-preloader .mil-up').length ) {
+    timeline.fromTo(".mil-preloader .mil-up", 0.8, {
+        opacity: 0,
+        y: 40,
+        scale: .98,
+        ease: 'sine',
+    }, {
+        y: 0,
+        opacity: 1,
+        scale: 1,
+        onComplete: function () {
+            $('.mil-preloader').addClass("mil-hidden");
+        },
+    }, "-=1");
+    }
+   
+    /***************************
+
+    anchor scroll
+
+    ***************************/
+    $(document).on('click', 'a[href^="#"]:not([href^="#elementor"])', function (event) {
+        event.preventDefault();
+
+        var target = $($.attr(this, 'href'));
+        var offset = 0;
+
+        if ($(window).width() < 1200) {
+            offset = 90;
+        }
+
+        $('html, body').animate({
+            scrollTop: target.offset().top - offset
+        }, 400);
+    });
+
+    /***************************
+
+    append
+
+    ***************************/
+    $(document).ready(function () {
+        $(".mil-arrow").clone().appendTo(".mil-arrow-place");
+        $(".mil-dodecahedron").clone().appendTo(".mil-animation");
+        $(".mil-lines").clone().appendTo(".mil-lines-place");
+        $(".mil-main-menu ul li.mil-active > a").clone().appendTo(".mil-current-page");
+    });
+
+    /***************************
+
+    accordion
+
+    ***************************/
+    let groups = gsap.utils.toArray(".mil-accordion-group");
+    let menus = gsap.utils.toArray(".mil-accordion-menu");
+    let menuToggles = groups.map(createAnimation);
+
+    menus.forEach((menu) => {
+        menu.addEventListener("click", () => toggleMenu(menu));
+    });
+
+    function toggleMenu(clickedMenu) {
+        menuToggles.forEach((toggleFn) => toggleFn(clickedMenu));
+    }
+
+    function createAnimation(element) {
+        let menu = element.querySelector(".mil-accordion-menu");
+        let box = element.querySelector(".mil-accordion-content");
+        let symbol = element.querySelector(".mil-symbol");
+        let minusElement = element.querySelector(".mil-minus");
+        let plusElement = element.querySelector(".mil-plus");
+
+        gsap.set(box, {
+            height: "auto",
+        });
+
+        let animation = gsap
+            .timeline()
+            .from(box, {
+                height: 0,
+                duration: 0.4,
+                ease: "sine"
+            })
+            .from(minusElement, {
+                duration: 0.4,
+                autoAlpha: 0,
+                ease: "none",
+            }, 0)
+            .to(plusElement, {
+                duration: 0.4,
+                autoAlpha: 0,
+                ease: "none",
+            }, 0)
+            .to(symbol, {
+                background: variables.accentColor,
+                ease: "none",
+            }, 0)
+            .reverse();
+
+        return function (clickedMenu) {
+            if (clickedMenu === menu) {
+                animation.reversed(!animation.reversed());
+            } else {
+                animation.reverse();
+            }
+        };
+    }
+
+    /***************************
+
+    back to top
+
+    ***************************/
+    if ($(window).width() > 991) {
+		const btt = document.querySelectorAll(".mil-back-to-top .mil-link");
+		if (btt.length > 0) {
+			gsap.set(btt, {
+				x: -30,
+				opacity: 0,
+			});
+
+			gsap.to(btt, {
+				x: 0,
+				opacity: 1,
+				ease: 'sine',
+				scrollTrigger: {
+					trigger: "body",
+					start: "top -40%",
+					end: "top -40%",
+					toggleActions: "play none reverse none"
+				}
+			});
+		}
+    }
+
+    /***************************
+
+    cursor
+
+    ***************************/
+    const cursor = document.querySelector('.mil-ball');
+
+//     gsap.set(cursor, {
+//         xPercent: -50,
+//         yPercent: -50,
+//     });
+
+//     // document.addEventListener('pointermove', movecursor);
+
+//     function movecursor(e) {
+//         gsap.to(cursor, {
+//             duration: 0.6,
+//             ease: 'sine',
+//             x: e.clientX,
+//             y: e.clientY,
+//         });
+//     }
+
+//     $('.mil-drag, .mil-more, .mil-choose').mouseover(function () {
+//         gsap.to($(cursor), .2, {
+//             width: 90,
+//             height: 90,
+//             opacity: 1,
+//             ease: 'sine',
+//         });
+//     });
+
+//     $('.mil-drag, .mil-more, .mil-choose').mouseleave(function () {
+//         gsap.to($(cursor), .2, {
+//             width: 20,
+//             height: 20,
+//             opacity: .1,
+//             ease: 'sine',
+//         });
+//     });
+
+//     $('.mil-accent-cursor').mouseover(function () {
+//         gsap.to($(cursor), .2, {
+//             background: variables.accentColor,
+//             ease: 'sine',
+//         });
+//         $(cursor).addClass('mil-accent');
+//     });
+
+//     $('.mil-accent-cursor').mouseleave(function () {
+//         gsap.to($(cursor), .2, {
+//             background: variables.darkColor,
+//             ease: 'sine',
+//         });
+//         $(cursor).removeClass('mil-accent');
+//     });
+
+//     $('.mil-drag').mouseover(function () {
+//         gsap.to($('.mil-ball .mil-icon-1'), .2, {
+//             scale: '1',
+//             ease: 'sine',
+//         });
+//     });
+
+//     $('.mil-drag').mouseleave(function () {
+//         gsap.to($('.mil-ball .mil-icon-1'), .2, {
+//             scale: '0',
+//             ease: 'sine',
+//         });
+//     });
+
+//     $('.mil-more').mouseover(function () {
+//         gsap.to($('.mil-ball .mil-more-text'), .2, {
+//             scale: '1',
+//             ease: 'sine',
+//         });
+//     });
+
+//     $('.mil-more').mouseleave(function () {
+//         gsap.to($('.mil-ball .mil-more-text'), .2, {
+//             scale: '0',
+//             ease: 'sine',
+//         });
+//     });
+
+//     $('.mil-choose').mouseover(function () {
+//         gsap.to($('.mil-ball .mil-choose-text'), .2, {
+//             scale: '1',
+//             ease: 'sine',
+//         });
+//     });
+
+//     $('.mil-choose').mouseleave(function () {
+//         gsap.to($('.mil-ball .mil-choose-text'), .2, {
+//             scale: '0',
+//             ease: 'sine',
+//         });
+//     });
+
+//     $('a:not(".mil-choose , .mil-more , .mil-drag , .mil-accent-cursor"), input , textarea, .mil-accordion-menu').mouseover(function () {
+//         gsap.to($(cursor), .2, {
+//             scale: 0,
+//             ease: 'sine',
+//         });
+//         gsap.to($('.mil-ball svg'), .2, {
+//             scale: 0,
+//         });
+//     });
+
+//     $('a:not(".mil-choose , .mil-more , .mil-drag , .mil-accent-cursor"), input, textarea, .mil-accordion-menu').mouseleave(function () {
+//         gsap.to($(cursor), .2, {
+//             scale: 1,
+//             ease: 'sine',
+//         });
+
+//         gsap.to($('.mil-ball svg'), .2, {
+//             scale: 1,
+//         });
+//     });
+
+//     $('body').mousedown(function () {
+//         gsap.to($(cursor), .2, {
+//             scale: .1,
+//             ease: 'sine',
+//         });
+//     });
+//     $('body').mouseup(function () {
+//         gsap.to($(cursor), .2, {
+//             scale: 1,
+//             ease: 'sine',
+//         });
+//     });
+
+    /***************************
+
+     menu
+
+    ***************************/
+    $('.mil-menu-btn').on("click", function () {
+        $('.mil-menu-btn').toggleClass('mil-active');
+        $('.mil-menu').toggleClass('mil-active');
+        $('.mil-menu-frame').toggleClass('mil-active');
+    });
+
+    /***************************
+
+    main menu
+
+    ***************************/
+    $('.mil-has-children > a').after('<div class="arrow-dropdown"><i class="fa fa-chevron-down"></i></div>');
+    $('.mil-has-children').on('click', '> .arrow-dropdown', function (e) {
+        if ( $(this).prev().hasClass('mil-active') ) {
+			$(this).siblings().removeClass('mil-active');
+//             $('.mil-has-children > ul').removeClass('mil-active');
+//             $('.mil-has-children > a').removeClass('mil-active');
+        } else {
+			$('ul.mil-main-menu-list .mil-has-children > ul').removeClass('mil-active');
+			$('ul.mil-main-menu-list .mil-has-children > a').removeClass('mil-active');
+            $(this).prev().toggleClass('mil-active');
+            $(this).next().toggleClass('mil-active');
+        }
+
+        return false;
+    });
+	$('.mil-has-children > a').on('click', function(e) {
+		e.preventDefault();
+		$(this).next('.arrow-dropdown').trigger('click');
+	});
+
+    /***************************
+
+    progressbar
+
+    ***************************/
+    if ($(window).width() > 991) {
+    var smoothScrollEnable = $('.mil-wrapper').data('smooth-scroll');
+
+    if ( smoothScrollEnable ) {
+    gsap.to('.mil-progress', {
+        height: '100%',
+        ease: 'sine',
+        scrollTrigger: {
+            scrub: 0.3
+        }
+    });
+    }
+    }
+
+    /***************************
+
+    scroll animations
+
+    ***************************/
+    if ( !elementor ) {
+    const appearance = document.querySelectorAll(".mil-up");
+    appearance.forEach((section) => {
+        gsap.fromTo(section, {
+            opacity: 0,
+            y: 40,
+            scale: .98,
+            ease: 'sine',
+            onComplete: function() {
+                $(section).addClass('mil-up-completed');
+            },
+        }, {
+            y: 0,
+            opacity: 1,
+            scale: 1,
+            duration: .4,
+            scrollTrigger: {
+                trigger: section,
+                toggleActions: 'play none none reverse',
+            }
+        });
+    });
+
+    const scaleImage = document.querySelectorAll(".mil-scale");
+    scaleImage.forEach((section) => {
+        var value1 = $(section).data("value-1");
+        var value2 = $(section).data("value-2");
+        gsap.fromTo(section, {
+            ease: 'sine',
+            scale: value1,
+
+        }, {
+            scale: value2,
+            scrollTrigger: {
+                trigger: section,
+                scrub: true,
+                toggleActions: 'play none none reverse',
+            }
+        });
+    });
+
+    const parallaxImage = document.querySelectorAll(".mil-parallax");
+    if ($(window).width() > 960) {
+        parallaxImage.forEach((section) => {
+            var value1 = $(section).data("value-1");
+            var value2 = $(section).data("value-2");
+            gsap.fromTo(section, {
+                ease: 'sine',
+                y: value1,
+
+            }, {
+                y: value2,
+                scrollTrigger: {
+                    trigger: section,
+                    scrub: true,
+                    toggleActions: 'play none none reverse',
+                }
+            });
+        });
+    }
+
+    const rotate = document.querySelectorAll(".mil-rotate");
+    rotate.forEach((section) => {
+        var value = $(section).data("value");
+        gsap.fromTo(section, {
+            ease: 'sine',
+            rotate: 0,
+
+        }, {
+            rotate: value,
+            scrollTrigger: {
+                trigger: section,
+                scrub: true,
+                toggleActions: 'play none none reverse',
+            }
+        });
+    });
+    }
+
+    /***************************
+
+    reviews slider
+
+    ***************************/
+    var menu = ['<div class="mil-custom-dot mil-slide-1"></div>', '<div class="mil-custom-dot mil-slide-2"></div>', '<div class="mil-custom-dot mil-slide-3"></div>', '<div class="mil-custom-dot mil-slide-4"></div>', '<div class="mil-custom-dot mil-slide-5"></div>', '<div class="mil-custom-dot mil-slide-6"></div>', '<div class="mil-custom-dot mil-slide-7"></div>']
+    var mySwiper = new Swiper('.mil-reviews-slider', {
+        // If we need pagination
+        pagination: {
+            el: '.mil-revi-pagination',
+            clickable: true,
+            renderBullet: function (index, className) {
+                var image = $('.mil-review-'+(index+1)).data('image');
+                return '<span class="' + className + '"><span class="mil-custom-dot mil-slide-' + (index+1) + '" style="background-image: url(' + image + ')"></span></span>';
+            },
+        },
+        speed: 800,
+        effect: 'fade',
+        parallax: true,
+        navigation: {
+            nextEl: '.mil-revi-next',
+            prevEl: '.mil-revi-prev',
+        },
+    })
+
+    /***************************
+
+    infinite slider
+
+    ***************************/
+    var swiper = new Swiper('.mil-infinite-show', {
+        slidesPerView: 2,
+        spaceBetween: 30,
+        speed: 5000,
+        autoplay: true,
+        autoplay: {
+            delay: 0,
+        },
+        loop: true,
+        freeMode: true,
+        breakpoints: {
+            992: {
+                slidesPerView: 4,
+            },
+        },
+    });
+
+    /***************************
+
+    portfolio slider
+
+    ***************************/
+    var p_mousewheel = true;
+    var p_mousewheel_param = $('.mil-portfolio-slider').data('mousewheel');
+    if (p_mousewheel_param == 'false') {
+        p_mousewheel = false;
+    }
+    var swiper = new Swiper('.mil-portfolio-slider', {
+        slidesPerView: 1,
+        spaceBetween: 0,
+        speed: 800,
+        parallax: true,
+        mousewheel: {
+            enable: p_mousewheel
+        },
+        navigation: {
+            nextEl: '.mil-portfolio-next',
+            prevEl: '.mil-portfolio-prev',
+        },
+        pagination: {
+            el: '.swiper-portfolio-pagination',
+            type: 'fraction',
+        },
+    });
+
+    /***************************
+
+    1 item slider
+
+    ***************************/
+    var swiper = new Swiper('.mil-1-slider', {
+        slidesPerView: 1,
+        spaceBetween: 30,
+        speed: 800,
+        parallax: true,
+        navigation: {
+            nextEl: '.mil-portfolio-next',
+            prevEl: '.mil-portfolio-prev',
+        },
+        pagination: {
+            el: '.swiper-portfolio-pagination',
+            type: 'fraction',
+        },
+    });
+
+    /***************************
+
+    2 item slider
+
+    ***************************/
+    var swiper = new Swiper('.mil-2-slider', {
+        slidesPerView: 1,
+        spaceBetween: 30,
+        speed: 800,
+        parallax: true,
+        navigation: {
+            nextEl: '.mil-portfolio-next',
+            prevEl: '.mil-portfolio-prev',
+        },
+        pagination: {
+            el: '.swiper-portfolio-pagination',
+            type: 'fraction',
+        },
+        breakpoints: {
+            992: {
+                slidesPerView: 2,
+            },
+        },
+    });
+
+    /***************************
+
+    Magnific Popups
+
+    ***************************/
+    if(/\.(?:jpg|jpeg|gif|png)$/i.test($('.wp-block-gallery .blocks-gallery-item:first a').attr('href'))){
+    $('.wp-block-gallery a').magnificPopup({
+        gallery: {
+            enabled: true
+        },
+        type: 'image',
+        closeOnContentClick: false,
+        fixedContentPos: false,
+        closeBtnInside: false,
+        callbacks: {
+        beforeOpen: function() {
+            // just a hack that adds mfp-anim class to markup
+            this.st.image.markup = this.st.image.markup.replace('mfp-figure', 'mfp-figure mfp-with-anim');
+            this.st.mainClass = 'mfp-zoom-in';
+        }
+        },
+    });
+    }
+    $('[data-magnific-inline]').magnificPopup({
+    type: 'inline',
+    overflowY: 'auto',
+    preloader: false,
+    callbacks: {
+        beforeOpen: function() {
+            this.st.mainClass = 'mfp-zoom-in';
+        }
+    },
+    });
+    $('[data-magnific-image]').magnificPopup({
+    type: 'image',
+    closeOnContentClick: true,
+    fixedContentPos: false,
+    closeBtnInside: false,
+    callbacks: {
+        beforeOpen: function() {
+        // just a hack that adds mfp-anim class to markup
+            this.st.image.markup = this.st.image.markup.replace('mfp-figure', 'mfp-figure mfp-with-anim');
+            this.st.mainClass = 'mfp-zoom-in';
+        }
+    },
+    });
+    if (!$('body').hasClass('elementor-page')) {
+    $("a").each(function(i, el) {
+        var href_value = el.href;
+        if (/\.(jpg|png|gif)$/.test(href_value)) {
+            $(el).magnificPopup({
+            type: 'image',
+            closeOnContentClick: true,
+            fixedContentPos: false,
+            closeBtnInside: false,
+            callbacks: {
+                beforeOpen: function() {
+                // just a hack that adds mfp-anim class to markup
+                    this.st.image.markup = this.st.image.markup.replace('mfp-figure', 'mfp-figure mfp-with-anim');
+                    this.st.mainClass = 'mfp-zoom-in';
+                }
+            },
+            });
+        }
+    });
+    }
+    $('[data-magnific-video]').magnificPopup({
+    type: 'iframe',
+    iframe: {
+        patterns: {
+            youtube_short: {
+                index: 'youtu.be/',
+                id: 'youtu.be/',
+                src: 'https://www.youtube.com/embed/%id%?autoplay=1'
+            }
+        }
+    },
+    preloader: false,
+    fixedContentPos: false,
+    callbacks: {
+        markupParse: function(template, values, item) {
+        template.find('iframe').attr('allow', 'autoplay');
+        },
+        beforeOpen: function() {
+        // just a hack that adds mfp-anim class to markup
+            this.st.image.markup = this.st.image.markup.replace('mfp-figure', 'mfp-figure mfp-with-anim');
+            this.st.mainClass = 'mfp-zoom-in';
+        }
+    },
+    });
+    $('[data-magnific-music]').magnificPopup({
+    type: 'iframe',
+    preloader: false,
+    fixedContentPos: false,
+    closeBtnInside: true,
+    callbacks: {
+        beforeOpen: function() {
+        // just a hack that adds mfp-anim class to markup
+            this.st.image.markup = this.st.image.markup.replace('mfp-figure', 'mfp-figure mfp-with-anim');
+            this.st.mainClass = 'mfp-zoom-in';
+        }
+    },
+    });
+    $('[data-magnific-gallery]').magnificPopup({
+    gallery: {
+        enabled: true
+    },
+    type: 'image',
+    closeOnContentClick: false,
+    fixedContentPos: false,
+    closeBtnInside: false,
+    callbacks: {
+        beforeOpen: function() {
+        // just a hack that adds mfp-anim class to markup
+            this.st.image.markup = this.st.image.markup.replace('mfp-figure', 'mfp-figure mfp-with-anim');
+            this.st.mainClass = 'mfp-zoom-in';
+        }
+    },
+    });
+
+    /* Generate Random Title Markup */
+    if ( $('.mil-thin-gen').length ) {
+        var mtg_words = $('.mil-thin-gen').text().split(' ');
+        var mtg_num = mtg_words.length;
+        var mtg_count = parseInt(mtg_num/2);
+        var mtg_indexes = [];
+        var mtg_res = '';
+        for (var i = 0; i<mtg_count; i++){
+            mtg_indexes.push(Math.floor(Math.random() * mtg_num));
+        }
+        for (var i=0; i<mtg_num; i++) {
+            if ( mtg_indexes.includes(i) ) {
+                mtg_res += ' ' + '<span class="mil-thin">' + mtg_words[i] + '</span>';
+            } else {
+                mtg_res += ' ' + mtg_words[i];
+            }
+        }
+        if ( mtg_res ) {
+            $('.mil-thin-gen').html(mtg_res);
+        }
+    }
+
+    /* 
+		X Icon
+	*/
+	if($('footer .mil-social-icons .fab.fa-twitter').length){
+		$('footer .mil-social-icons .fab.fa-twitter').addClass('x-icon');
+		$('footer .mil-social-icons .fab.fa-twitter').append('<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="#ffffff" d="M389.2 48h70.6L305.6 224.2 487 464H345L233.7 318.6 106.5 464H35.8L200.7 275.5 26.8 48H172.4L272.9 180.9 389.2 48zM364.4 421.8h39.1L151.1 88h-42L364.4 421.8z"/></svg>');
+	}
+
+    /***************************
+
+    Logo Invert
+
+    ***************************/
+    if ( $('.js-replace').length && !elementor && $(window).width() > 991 ) {
+        // Detect request animation frame
+        var scroll = window.requestAnimationFrame || function(callback){ window.setTimeout(callback, 1000/60) };
+        var lastPosition = -1;
+
+        // my Variables
+        var lastSection = false;
+        var replaceItemTop = -1;
+        var replaceItemBottom = -1;
+        var replaceItemHeight = -1;
+
+        // The Scroll Function
+        function loop(){
+            var top = window.pageYOffset;
+            if($('.mil-main-transition > div > div.elementor > section').length) {
+            var sections = document.querySelectorAll('.mil-main-transition > div > div.elementor > section');
+            }else{
+            var sections = document.querySelectorAll('section');
+            }
+            sections.forEach(function (section) {
+                if (section.querySelector('.mil-dark-bg') !== null) {
+                    section.classList.add('mil-dark-bg');
+                }
+            });
+            var replaceContainer = document.querySelectorAll('.js-replace');
+            var replaceItem = document.querySelectorAll('.js-replace__item');
+            if (replaceItem.length > 0) {
+                // get top position of item from container, because image might not have loaded
+                replaceItemTop = parseInt(replaceContainer[0].getBoundingClientRect().top);
+                replaceItemHeight = replaceItem[0].offsetHeight;
+                replaceItemBottom = replaceItemTop + replaceItemHeight;
+            }
+            var sectionTop = -1;
+            var sectionBottom = -1;
+            var currentSection = -1;
+
+            // Fire when needed
+            if (lastPosition == window.pageYOffset) {
+                scroll(loop);
+                return false;
+            } else {
+                lastPosition = window.pageYOffset;
+
+                // Your Function
+                Array.prototype.forEach.call(sections, function(el, i){
+                    sectionTop = parseInt(el.getBoundingClientRect().top);
+                    sectionBottom = parseInt(el.getBoundingClientRect().bottom);
+
+                    // active section
+                    if ( (sectionTop <= replaceItemBottom) && (sectionBottom > replaceItemTop)) {
+                        // check if current section has bg
+                        currentSection = el.classList.contains('mil-dark-bg');
+
+                        // switch class depending on background image
+                        if ( currentSection ) { 
+                            replaceContainer[0].classList.remove('js-replace--reverse');
+                        } else {
+                            replaceContainer[0].classList.add('js-replace--reverse')
+                        }
+                    }
+                    // end active section
+
+                    // if active Section hits replace area
+                    if ( (replaceItemTop < sectionTop) && ( sectionTop <= replaceItemBottom) ) {
+                        // animate only, if section background changed
+                        if (currentSection != lastSection)  {
+                            document.documentElement.style.setProperty('--replace-offset', 100 / replaceItemHeight * parseInt(sectionTop - replaceItemTop) + '%');
+                        }
+                    }
+                    // end active section in replace area
+
+                    // if section above replace area
+                    if ( replaceItemTop >= sectionTop ) {
+                        // set offset to 0 if you scroll too fast
+                        document.documentElement.style.setProperty('--replace-offset', 0 + '%');
+                        // set last section to current section
+                        lastSection = currentSection;
+                    }
+                });
+            }
+        }
+
+        // Call the loop
+        loop();
+        document.addEventListener("scroll", (event) => {
+            loop();
+        });
+    }
+
+    /***************************
+
+    Menu Invert
+
+    ***************************/
+    if ( $('.js-replace-two').length && !elementor && $(window).width() > 991 ) {
+        // Detect request animation frame
+        var scroll_two = window.requestAnimationFrame || function(callback_two){ window.setTimeout(callback_two, 1000/60) };
+        var lastPosition_two = -1;
+
+        // my Variables
+        var lastSection_two = false;
+        var replaceItemTop_two = -1;
+        var replaceItemBottom_two = -1;
+        var replaceItemHeight_two = -1;
+
+        // The Scroll Function
+        function loop_two(){
+            var top = window.pageYOffset;
+            if($('.mil-main-transition > div > div.elementor > section').length) {
+            var sections_two = document.querySelectorAll('.mil-main-transition > div > div.elementor > section');
+            }else{
+            var sections_two = document.querySelectorAll('section');
+            }
+            sections_two.forEach(function (section) {
+                if (section.querySelector('.mil-dark-bg') !== null) {
+                    section.classList.add('mil-dark-bg');
+                }
+            });
+            var replaceContainer_two = document.querySelectorAll('.js-replace-two');
+            var replaceItem_two = document.querySelectorAll('.js-replace__item-two');
+            if (replaceItem_two.length > 0) {
+                // get top position of item from container, because image might not have loaded
+                replaceItemTop_two = parseInt(replaceContainer_two[0].getBoundingClientRect().top);
+                replaceItemHeight_two = replaceItem_two[0].offsetHeight;
+                replaceItemBottom_two = replaceItemTop_two + replaceItemHeight_two;
+            }
+            var sectionTop_two = -1;
+            var sectionBottom_two = -1;
+            var currentSection_two = -1;
+
+            // Fire when needed
+            if (lastPosition_two == window.pageYOffset) {
+                scroll_two(loop_two);
+                return false;
+            } else {
+                lastPosition_two = window.pageYOffset;
+
+                // Your Function
+                Array.prototype.forEach.call(sections_two, function(el, i){
+                    sectionTop_two = parseInt(el.getBoundingClientRect().top);
+                    sectionBottom_two = parseInt(el.getBoundingClientRect().bottom);
+
+                    // active section
+                    if ( (sectionTop_two <= replaceItemBottom_two) && (sectionBottom_two > replaceItemTop_two)) {
+                        // check if current section has bg
+                        currentSection_two = el.classList.contains('mil-dark-bg');
+
+                        // switch class depending on background image
+                        if ( currentSection_two || el.querySelectorAll('.mil-dark-bg').length ) { 
+                            replaceContainer_two[0].classList.remove('js-replace--reverse-two');
+                        } else {
+                            replaceContainer_two[0].classList.add('js-replace--reverse-two')
+                        }
+                    }
+                    // end active section
+
+                    // if active Section hits replace area
+                    if ( (replaceItemTop_two < sectionTop_two) && ( sectionTop_two <= replaceItemBottom_two) ) {
+                        // animate only, if section background changed
+                        if (currentSection_two != lastSection_two)  {
+                            document.documentElement.style.setProperty('--replace-offset-two', 100 / replaceItemHeight_two * parseInt(sectionTop_two - replaceItemTop_two) + '%');
+                        }
+                    }
+                    // end active section in replace area
+
+                    // if section above replace area
+                    if ( replaceItemTop_two >= sectionTop_two ) {
+                        // set offset to 0 if you scroll too fast
+                        document.documentElement.style.setProperty('--replace-offset-two', 0 + '%');
+                        // set last section to current section
+                        lastSection_two = currentSection_two;
+                    }
+                });
+            }
+        }
+
+        // Call the loop
+        loop_two();
+        document.addEventListener("scroll", (event) => {
+            loop_two();
+        });
+    }
+
+    /***************************
+
+    Scroll To Top Invert
+
+    ***************************/
+    if ( $('.js-replace-three').length && !elementor && $(window).width() > 991 ) {
+        // Detect request animation frame
+        var scroll_three = window.requestAnimationFrame || function(callback_three){ window.setTimeout(callback_three, 1000/60) };
+        var lastPosition_three = -1;
+
+        // my Variables
+        var lastSection_three = false;
+        var replaceItemTop_three = -1;
+        var replaceItemBottom_three = -1;
+        var replaceItemHeight_three = -1;
+
+        // The Scroll Function
+        function loop_three(){
+            var top = window.pageYOffset;
+            if($('.mil-main-transition > div > div.elementor > section').length) {
+            var sections_three = document.querySelectorAll('.mil-main-transition > div > div.elementor > section');
+            }else{
+            var sections_three = document.querySelectorAll('section');
+            }
+            sections_three.forEach(function (section) {
+                if (section.querySelector('.mil-dark-bg') !== null) {
+                    section.classList.add('mil-dark-bg');
+                }
+            });
+            var replaceContainer_three = document.querySelectorAll('.js-replace-three');
+            var replaceItem_three = document.querySelectorAll('.js-replace__item-three');
+
+            if (replaceItem_three.length > 0) {
+                // get top position of item from container, because image might not have loaded
+                replaceItemTop_three = parseInt(replaceContainer_three[0].getBoundingClientRect().top);
+                replaceItemHeight_three = replaceItem_three[0].offsetHeight;
+                replaceItemBottom_three = replaceItemTop_three + replaceItemHeight_three;
+            }
+
+            var sectionTop_three = -1;
+            var sectionBottom_three = -1;
+            var currentSection_three = -1;
+
+            // Fire when needed
+            if (lastPosition_three == window.pageYOffset) {
+                scroll_three(loop_three);
+                return false;
+            } else {
+                lastPosition_three = window.pageYOffset;
+
+                // Your Function
+                Array.prototype.forEach.call(sections_three, function(el, i){
+                    sectionTop_three = parseInt(el.getBoundingClientRect().top);
+                    sectionBottom_three = parseInt(el.getBoundingClientRect().bottom);
+
+                    // active section
+                    if ( (sectionTop_three <= replaceItemBottom_three) && (sectionBottom_three > replaceItemTop_three)) {
+                        // check if current section has bg
+                        currentSection_three = el.classList.contains('mil-dark-bg');
+
+                        // switch class depending on background image
+                        if ( currentSection_three || el.querySelectorAll('.mil-dark-bg').length ) { 
+                            replaceContainer_three[0].classList.remove('js-replace--reverse-three');
+                        } else {
+                            replaceContainer_three[0].classList.add('js-replace--reverse-three')
+                        }
+                    }
+                    // end active section
+
+                    // if active Section hits replace area
+                    if ( (replaceItemTop_three < sectionTop_three) && ( sectionTop_three <= replaceItemBottom_three) ) {
+                        // animate only, if section background changed
+                        if (currentSection_three != lastSection_three)  {
+                            document.documentElement.style.setProperty('--replace-offset-three', 100 / replaceItemHeight_three * parseInt(sectionTop_three - replaceItemTop_three) + '%');
+                        }
+                    }
+                    // end active section in replace area
+
+                    // if section above replace area
+                    if ( replaceItemTop_three >= sectionTop_three ) {
+                        // set offset to 0 if you scroll too fast
+                        document.documentElement.style.setProperty('--replace-offset-three', 0 + '%');
+                        // set last section to current section
+                        lastSection_three = currentSection_three;
+                    }
+                });
+            }
+        }
+
+        // Call the loop
+        loop_three();
+        document.addEventListener("scroll", (event) => {
+            loop_three();
+        });
+    }
+
+    /***************************
+
+     Portfolio filters
+
+    ***************************/
+     $('.mil-category-list .mil-filter-item').on("click", function () {
+        var fil_val = '.' + $(this).data('filter');
+        $('.mil-category-list .mil-filter-item').removeClass('mil-active');
+        $(this).addClass('mil-active');
+        $(fil_val).addClass('fadeUpAnime');
+
+        $('.mil-portfolio .mil-portfolio-col').hide();
+        $(fil_val).show();
+
+        ScrollTrigger.refresh();
+    });
+
+} )( jQuery );

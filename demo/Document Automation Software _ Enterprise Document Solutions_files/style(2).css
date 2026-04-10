@@ -1,0 +1,79 @@
+/*!
+Theme Name: Ashley Child
+Theme URI: https://bslthemes.com/
+Author: bslthemes
+Author URI: https://themeforest.net/user/bslthemes
+Description: Ashley - Creative Potfolio WordPress Theme
+Version: 1.0.0
+License: General Public License
+License URI: http://www.gnu.org/licenses/gpl.html
+Template: ashley
+Text Domain: ashley-child
+Tags: full-width-template, editor-style, featured-images, sticky-post, threaded-comments, translation-ready, theme-options
+*/
+
+@font-face {
+    font-family: 'TWK Ghost';
+    src: url('fonts/TWKGhostTTF-Regular.eot');
+    src: url('fonts/TWKGhostTTF-Regular.eot?#iefix') format('embedded-opentype'),
+        url('fonts/TWKGhostTTF-Regular.woff2') format('woff2'),
+        url('fonts/TWKGhostTTF-Regular.woff') format('woff'),
+        url('fonts/TWKGhostTTF-Regular.ttf') format('truetype'),
+        url('fonts/TWKGhostTTF-Regular.svg#TWKGhostTTF-Regular') format('svg');
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Helvetica Neue';
+    src: url('fonts/HelveticaNeue-BoldItalic.eot');
+    src: url('fonts/HelveticaNeue-BoldItalic.eot?#iefix') format('embedded-opentype'),
+        url('fonts/HelveticaNeue-BoldItalic.woff2') format('woff2'),
+        url('fonts/HelveticaNeue-BoldItalic.woff') format('woff'),
+        url('fonts/HelveticaNeue-BoldItalic.ttf') format('truetype'),
+        url('fonts/HelveticaNeue-BoldItalic.svg#HelveticaNeue-BoldItalic') format('svg');
+    font-weight: bold;
+    font-style: italic;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Helvetica Neue';
+    src: url('fonts/HelveticaNeue.eot');
+    src: url('fonts/HelveticaNeue.eot?#iefix') format('embedded-opentype'),
+        url('fonts/HelveticaNeue.woff2') format('woff2'),
+        url('fonts/HelveticaNeue.woff') format('woff'),
+        url('fonts/HelveticaNeue.ttf') format('truetype'),
+        url('fonts/HelveticaNeue.svg#HelveticaNeue') format('svg');
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Helvetica Neue';
+    src: url('fonts/HelveticaNeue-Bold.eot');
+    src: url('fonts/HelveticaNeue-Bold.eot?#iefix') format('embedded-opentype'),
+        url('fonts/HelveticaNeue-Bold.woff2') format('woff2'),
+        url('fonts/HelveticaNeue-Bold.woff') format('woff'),
+        url('fonts/HelveticaNeue-Bold.ttf') format('truetype'),
+        url('fonts/HelveticaNeue-Bold.svg#HelveticaNeue-Bold') format('svg');
+    font-weight: bold;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Helvetica Neue';
+    src: url('fonts/HelveticaNeue-Italic.eot');
+    src: url('fonts/HelveticaNeue-Italic.eot?#iefix') format('embedded-opentype'),
+        url('fonts/HelveticaNeue-Italic.woff2') format('woff2'),
+        url('fonts/HelveticaNeue-Italic.woff') format('woff'),
+        url('fonts/HelveticaNeue-Italic.ttf') format('truetype'),
+        url('fonts/HelveticaNeue-Italic.svg#HelveticaNeue-Italic') format('svg');
+    font-weight: normal;
+    font-style: italic;
+    font-display: swap;
+}
+

@@ -1,0 +1,23 @@
+.elementor-editor-active .mil-frame-top,
+.elementor-editor-active footer.mil-dark-bg {
+	display: none !important;
+}
+
+.elementor-editor-active .mil-content {
+	padding-top: 4rem;
+	padding-bottom: 4rem;
+}
+
+.elementor-editor-active .type-hf_templates .mil-frame-top,
+.elementor-editor-active .type-hf_templates footer.mil-dark-bg {
+	display: block !important;
+}
+
+.elementor-editor-active.mil-wrapper-footer,
+.elementor-editor-active .mil-dark-bg:before {
+	background: #000;
+}
+
+.elementor-editor-active .mil-dark-bg:before {
+	z-index: -1;
+}
