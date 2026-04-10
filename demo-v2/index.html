@@ -154,7 +154,7 @@
 </div>
 </div>
 </section>
-<!-- Visual Manifest Section -->
+<!-- Customer Testimonials Carousel -->
 <section class="py-48 px-16 bg-surface-container-low flex items-center justify-center">
 <div class="max-w-6xl w-full grid grid-cols-1 md:grid-cols-2 gap-24 items-center">
 <div class="order-2 md:order-1">
@@ -162,7 +162,9 @@
 </div>
 <div class="order-1 md:order-2 space-y-12">
 <span class="text-secondary text-sm tracking-[0.3em] uppercase font-bold">What Our Customers Say</span>
-<blockquote class="hero-headline text-3xl leading-snug">
+<div class="relative overflow-hidden" id="testimonial-carousel">
+<div class="transition-opacity duration-700 ease-in-out" id="testimonial-slide">
+<blockquote class="hero-headline text-3xl leading-snug" id="testimonial-quote">
                     "ActiveDocs have been an absolute pleasure to work with and never cease to amaze me with the quality of work."
                 </blockquote>
 <div class="pt-4 flex gap-4 items-center">
@@ -170,9 +172,16 @@
 <span class="material-symbols-outlined text-white">format_quote</span>
 </div>
 <div>
-<p class="font-bold uppercase tracking-widest text-xs">Terry Fountain</p>
-<p class="text-on-surface-variant text-xs">CoBank</p>
+<p class="font-bold uppercase tracking-widest text-xs" id="testimonial-name">Terry Fountain</p>
+<p class="text-on-surface-variant text-xs" id="testimonial-company">CoBank</p>
 </div>
+</div>
+</div>
+</div>
+<div class="flex gap-3 pt-4">
+<button class="w-2 h-2 rounded-full bg-primary testimonial-dot" data-index="0"></button>
+<button class="w-2 h-2 rounded-full bg-primary/20 testimonial-dot" data-index="1"></button>
+<button class="w-2 h-2 rounded-full bg-primary/20 testimonial-dot" data-index="2"></button>
 </div>
 </div>
 </div>
@@ -227,4 +236,57 @@
 </div>
 </div>
 </footer>
+<script>
+(function() {
+  const testimonials = [
+    {
+      quote: "\u201CActiveDocs have been an absolute pleasure to work with and never cease to amaze me with the quality of work.\u201D",
+      name: "Terry Fountain",
+      company: "CoBank"
+    },
+    {
+      quote: "\u201CWe needed speed, volume, and flexibility to modify document processes to comply with regulations. We get all of that from ActiveDocs.\u201D",
+      name: "Troy Carlsen",
+      company: "Farm Credit Services of America"
+    },
+    {
+      quote: "\u201CWe work with a lot of large software vendors, and none of them listen and improve as quickly and readily as ActiveDocs.\u201D",
+      name: "Kris Hyman",
+      company: "RICOH"
+    }
+  ];
+
+  let current = 0;
+  const slide = document.getElementById('testimonial-slide');
+  const quote = document.getElementById('testimonial-quote');
+  const name = document.getElementById('testimonial-name');
+  const company = document.getElementById('testimonial-company');
+  const dots = document.querySelectorAll('.testimonial-dot');
+
+  function showSlide(index) {
+    slide.style.opacity = '0';
+    setTimeout(function() {
+      quote.textContent = testimonials[index].quote;
+      name.textContent = testimonials[index].name;
+      company.textContent = testimonials[index].company;
+      dots.forEach(function(dot, i) {
+        dot.classList.toggle('bg-primary', i === index);
+        dot.classList.toggle('bg-primary/20', i !== index);
+      });
+      slide.style.opacity = '1';
+    }, 350);
+    current = index;
+  }
+
+  dots.forEach(function(dot) {
+    dot.addEventListener('click', function() {
+      showSlide(parseInt(this.dataset.index));
+    });
+  });
+
+  setInterval(function() {
+    showSlide((current + 1) % testimonials.length);
+  }, 6000);
+})();
+</script>
 </body></html>
