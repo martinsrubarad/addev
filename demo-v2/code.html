@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<link href="https://fonts.googleapis.com/css2?family=Newsreader:opsz,wght@6..72,400;6..72,700&amp;family=Inter:wght@300;400;600&amp;family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "surface-container-highest": "#e4e1e6",
+                    "surface-dim": "#dcd9dd",
+                    "surface-container": "#f0edf1",
+                    "on-tertiary": "#ffffff",
+                    "inverse-surface": "#303033",
+                    "error-container": "#ffdad6",
+                    "surface-variant": "#e4e1e6",
+                    "secondary-fixed-dim": "#e6bfa0",
+                    "surface": "#fbf8fc",
+                    "on-tertiary-container": "#858387",
+                    "tertiary": "#000000",
+                    "on-primary-fixed": "#002022",
+                    "inverse-primary": "#7cd4dd",
+                    "background": "#fbf8fc",
+                    "primary": "#000000",
+                    "on-tertiary-fixed-variant": "#47464a",
+                    "secondary-fixed": "#ffdcc1",
+                    "on-secondary-fixed": "#2b1704",
+                    "surface-container-high": "#eae7eb",
+                    "on-secondary": "#ffffff",
+                    "inverse-on-surface": "#f3f0f4",
+                    "on-primary": "#ffffff",
+                    "surface-container-lowest": "#ffffff",
+                    "surface-bright": "#fbf8fc",
+                    "on-surface-variant": "#47464b",
+                    "primary-fixed": "#99f1f9",
+                    "on-background": "#1b1b1e",
+                    "on-tertiary-fixed": "#1b1b1e",
+                    "on-surface": "#1b1b1e",
+                    "error": "#ba1a1a",
+                    "primary-fixed-dim": "#7cd4dd",
+                    "on-secondary-container": "#795b41",
+                    "on-primary-fixed-variant": "#004f54",
+                    "on-error": "#ffffff",
+                    "surface-container-low": "#f6f2f7",
+                    "tertiary-fixed": "#e4e1e6",
+                    "tertiary-container": "#1b1b1e",
+                    "on-error-container": "#93000a",
+                    "outline-variant": "#c8c5cb",
+                    "tertiary-fixed-dim": "#c8c6ca",
+                    "on-secondary-fixed-variant": "#5c4129",
+                    "primary-container": "#002022",
+                    "outline": "#77767b",
+                    "surface-tint": "#006970",
+                    "secondary-container": "#fed5b5",
+                    "on-primary-container": "#329098",
+                    "secondary": "#76583f"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0px",
+                    "lg": "0px",
+                    "xl": "0px",
+                    "full": "9999px"
+            },
+            "fontFamily": {
+                    "headline": ["Newsreader", "serif"],
+                    "body": ["Inter", "sans-serif"],
+                    "label": ["Inter", "sans-serif"]
+            }
+          },
+        },
+      }
+    </script>
+<style>
+        body { font-family: 'Inter', sans-serif; }
+        .material-symbols-outlined { font-variation-settings: 'FILL' 0, 'wght' 200, 'GRAD' 0, 'opsz' 24; }
+        .tonal-shift { transition: background-color 0.3s ease; }
+        /* Precision typography for Newsreader */
+        .hero-headline { font-family: 'Newsreader', serif; font-weight: 400; letter-spacing: -0.02em; }
+    </style>
+</head>
+<body class="bg-surface text-on-surface selection:bg-on-primary-container selection:text-white">
+<!-- TopNavBar -->
+<nav class="fixed top-0 w-full z-50 bg-[#fbf8fc]/80 dark:bg-black/80 backdrop-blur-md flex justify-between items-center px-16 py-6 max-w-full mx-auto">
+<div class="flex items-center gap-4">
+<img alt="ActiveDocs Brand Logo" class="h-8 w-auto" data-alt="minimalist architectural logo for a documentation company using geometric lines and high contrast black and white" src="https://lh3.googleusercontent.com/aida-public/AB6AXuC4LAQXzpVHOLfiwpJ6oekHbDXBWZo97pI7G7rRKrvE7NPDSRj4CyVClQ-c7Mm34ycLdnrPpErYUdGCmyCDzsrn_4RpD79McbfQqWcGSYLTcciZXpbIbetsl83uc0NEgACUjeS6Fu3EfXvDlsuYC5voNhSQY_i78wjjKt6sQ73FPehZ2ShWr-8nDSQkojtlMT_tz_VVsCmvDaRYtUj4lfPfmJF4_oPuEj7HWCE2u-IPgGbnTuQ0oJuQzZcFkP9bDdYNkb4dZVAEKPc"/>
+<span class="text-2xl font-bold font-['Newsreader'] text-black dark:text-white tracking-tight">ActiveDocs</span>
+</div>
+<div class="hidden md:flex gap-12 items-center">
+<a class="font-['Newsreader'] tracking-tight text-black dark:text-white border-b-2 border-[#329098] pb-1 hover:text-[#329098] transition-colors duration-300" href="#">Solutions</a>
+<a class="font-['Newsreader'] tracking-tight text-black/60 dark:text-white/60 hover:text-[#329098] transition-colors duration-300" href="#">Library</a>
+<a class="font-['Newsreader'] tracking-tight text-black/60 dark:text-white/60 hover:text-[#329098] transition-colors duration-300" href="#">Methods</a>
+<a class="font-['Newsreader'] tracking-tight text-black/60 dark:text-white/60 hover:text-[#329098] transition-colors duration-300" href="#">Pricing</a>
+</div>
+<div class="flex items-center gap-8">
+<span class="material-symbols-outlined cursor-pointer text-black dark:text-white">search</span>
+<button class="bg-primary text-on-primary px-8 py-2 text-sm font-label tracking-widest uppercase hover:bg-on-primary-container transition-colors duration-300">Sign In</button>
+</div>
+</nav>
+<!-- Hero Section: Understated Strength -->
+<header class="relative min-h-screen flex flex-col justify-center px-16 pt-24 overflow-hidden">
+<div class="absolute inset-0 z-0 opacity-10 grayscale">
+<img class="w-full h-full object-cover" data-alt="sophisticated abstract background with subtle paper textures and clean geometric shadows in a high-key lighting setup" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBPPT2BAqAv6FctKJphyQyD2x17JEcIBiruf7s4rfbKVYg2J2dpvg4v4UGQ-ZOkImfSkq1JGzZOw8-WF5OgcWEl6GVcjn_OxISX-3pC7p1q3VfNOsqN65_cq1lkOqTZ8_GjfBI00mASVsIqi5sdoTBsbj53AC9x6G0uElDMtE6KjOs1P1EH6wjI1fwL87lfoVGP6JVPZfHzhtzrxc_CYc8aaPvLd7cn3WGakLfJju6-p81tBlN6xl4ikqzpPC9_G0eaT-Wt4KFINiQ"/>
+</div>
+<div class="relative z-10 max-w-4xl space-y-12">
+<h1 class="hero-headline text-5xl md:text-6xl text-primary leading-[1.1] max-w-2xl">
+                Document Intelligence. <span class="italic text-on-surface-variant">Curated.</span>
+</h1>
+<p class="text-on-surface-variant text-lg md:text-xl font-light leading-relaxed max-w-xl border-l border-on-primary-container pl-8">
+                Elevating enterprise document generation through precise, academic discipline and quiet technical confidence.
+            </p>
+<div class="pt-8">
+<button class="group flex items-center gap-4 text-primary font-semibold tracking-tighter text-xl">
+<span class="pb-1 border-b-2 border-primary">Explore the Methodology</span>
+<span class="material-symbols-outlined group-hover:translate-x-2 transition-transform">arrow_forward</span>
+</button>
+</div>
+</div>
+</header>
+<!-- Structural Proof Points -->
+<section class="bg-surface py-32 px-16">
+<div class="grid grid-cols-1 md:grid-cols-12 gap-16">
+<div class="md:col-span-5 space-y-8">
+<div class="h-px w-24 bg-on-primary-container"></div>
+<h2 class="hero-headline text-4xl text-primary">Precision as a Service</h2>
+<p class="text-on-surface-variant leading-loose font-light">
+                    Our architecture prioritizes the silent strength of data accuracy over visual noise. We believe documentation is the backbone of institutional memory, requiring a tool that respects the weight of every word.
+                </p>
+</div>
+<div class="md:col-span-7 grid grid-cols-1 sm:grid-cols-2 gap-1 px-8 md:px-0">
+<!-- Bento-lite Grid for Features -->
+<div class="bg-surface-container-low p-12 flex flex-col justify-between min-h-[300px]">
+<span class="material-symbols-outlined text-on-primary-container" style="font-variation-settings: 'opsz' 48;">architecture</span>
+<h3 class="font-headline text-2xl">Structural Integrity</h3>
+<p class="text-sm text-on-surface-variant uppercase tracking-widest">Logic-driven templates</p>
+</div>
+<div class="bg-primary text-white p-12 flex flex-col justify-between min-h-[300px]">
+<span class="material-symbols-outlined text-secondary" style="font-variation-settings: 'opsz' 48;">terminal</span>
+<h3 class="font-headline text-2xl">Technical Fidelity</h3>
+<p class="text-sm text-white/60 uppercase tracking-widest">Developer-first API</p>
+</div>
+<div class="bg-surface-container-high p-12 flex flex-col justify-between min-h-[300px] sm:col-span-2">
+<div class="flex justify-between items-start">
+<span class="material-symbols-outlined text-on-primary-container" style="font-variation-settings: 'opsz' 48;">verified</span>
+<div class="text-right">
+<p class="text-4xl font-headline">99.9%</p>
+<p class="text-[10px] uppercase tracking-tighter text-on-surface-variant">Accuracy Metric</p>
+</div>
+</div>
+<h3 class="font-headline text-2xl max-w-xs">Academic discipline applied to corporate workflows.</h3>
+</div>
+</div>
+</div>
+</section>
+<!-- Visual Manifest Section -->
+<section class="py-48 px-16 bg-surface-container-low flex items-center justify-center">
+<div class="max-w-6xl w-full grid grid-cols-1 md:grid-cols-2 gap-24 items-center">
+<div class="order-2 md:order-1">
+<img class="w-full grayscale filter contrast-125" data-alt="extreme close up of white archival paper texture showing subtle fibrous details and clean sharp edges under bright studio light" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBGPWrEIcRUFuGYAh1WN_R6chzU4CCu_uewogjh_VO6odztPM7IpjvhohqbhAIhnT4BYUBjT-b3_eW0GC7cSJGWiwg43QK4CDHm458VBDyU_f9LHnueGYPMU_Cxf8mwSI9BHyJWn0ngRk1wW5ehCcHWnuGMOM-1XUAudQBskMNr0JcaYvFtMzOnzP9VV8JnIwAJhKK6SKB2WyQ3MAJLGoCNOAfoDUC0unqtJg4pUGzv1QJcJIf2jUXuA1nvcXR_DHIkCGNy8K_ID7A"/>
+</div>
+<div class="order-1 md:order-2 space-y-12">
+<span class="text-secondary text-sm tracking-[0.3em] uppercase font-bold">The Obsidian Principle</span>
+<blockquote class="hero-headline text-3xl leading-snug">
+                    "Intelligence is not found in the volume of the output, but in the precision of the logic."
+                </blockquote>
+<div class="pt-4 flex gap-4 items-center">
+<div class="h-12 w-12 bg-primary flex items-center justify-center">
+<span class="material-symbols-outlined text-white">menu_book</span>
+</div>
+<div>
+<p class="font-bold uppercase tracking-widest text-xs">Read the Manifesto</p>
+<p class="text-on-surface-variant text-xs">Version 1.0 — 2024</p>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Detailed Insights (Asymmetric Layout) -->
+<section class="py-32 px-16 bg-surface">
+<div class="max-w-7xl mx-auto space-y-32">
+<div class="flex flex-col md:flex-row gap-16 items-start">
+<div class="md:w-1/3">
+<h2 class="hero-headline text-5xl">Curated Clarity</h2>
+</div>
+<div class="md:w-2/3 space-y-8 pt-4">
+<p class="text-xl leading-relaxed font-light">
+                        We avoid the standard SaaS clutter. Every interface interaction within ActiveDocs is designed to disappear, leaving only your content and your logic. This is document generation stripped of vanity and built for velocity.
+                    </p>
+<div class="grid grid-cols-1 sm:grid-cols-3 gap-12 pt-8">
+<div>
+<p class="text-secondary font-bold text-sm tracking-widest mb-4">01</p>
+<h4 class="font-headline text-xl mb-2">Zero-Radius</h4>
+<p class="text-sm text-on-surface-variant leading-relaxed">No soft corners. Only sharp, geometric precision for serious enterprise use.</p>
+</div>
+<div>
+<p class="text-secondary font-bold text-sm tracking-widest mb-4">02</p>
+<h4 class="font-headline text-xl mb-2">Tonal Separation</h4>
+<p class="text-sm text-on-surface-variant leading-relaxed">Defining space through light and shadow rather than invasive border lines.</p>
+</div>
+<div>
+<p class="text-secondary font-bold text-sm tracking-widest mb-4">03</p>
+<h4 class="font-headline text-xl mb-2">Technical Core</h4>
+<p class="text-sm text-on-surface-variant leading-relaxed">Built on a Cerulean backbone of high-fidelity data processing.</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Footer -->
+<footer class="w-full border-t border-black/5 dark:border-white/5 bg-[#fbf8fc] dark:bg-black">
+<div class="flex flex-col md:flex-row justify-between items-center px-16 py-12 w-full">
+<div class="flex flex-col gap-4 mb-8 md:mb-0">
+<div class="flex items-center gap-3">
+<img alt="ActiveDocs Logo" class="h-6 w-auto grayscale" data-alt="ActiveDocs logo in black and white silhouette" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBJcxgfuQFu1TyXS3tj221iAVOdEVD7YoMrWoNRmvEEOTECxOblUYJ-_I6yXdl2LtfjeEWIc8qJzXK8WFWZdUonFu9gnj7nso1DbMoHxf_hRipz0ffap9P8-Pq85epntdQaf9ezzbmIryn_zqvgQm4WkI5w89fekDq5VXddLEjdX9V3wvesGY-AdCicPyL9blZ-Gy_aNDrTQgizP__oizcp0iw0ekOdRVmwvgmYwudpNbwhuK3_IA4gFC2Jyww9Pi1qYLQG-ULENuw"/>
+<span class="text-lg font-bold font-['Newsreader'] text-black dark:text-white">ActiveDocs</span>
+</div>
+<p class="font-['Inter'] text-sm tracking-wide uppercase text-black/40 dark:text-white/40">© 2024 ActiveDocs. Precision in Documentation.</p>
+</div>
+<div class="flex flex-wrap justify-center gap-10">
+<a class="font-['Inter'] text-sm tracking-wide uppercase text-black/40 dark:text-white/40 hover:text-[#76583f] transition-colors duration-200" href="#">Privacy Policy</a>
+<a class="font-['Inter'] text-sm tracking-wide uppercase text-black/40 dark:text-white/40 hover:text-[#76583f] transition-colors duration-200" href="#">Terms of Service</a>
+<a class="font-['Inter'] text-sm tracking-wide uppercase text-black/40 dark:text-white/40 hover:text-[#76583f] transition-colors duration-200" href="#">Security</a>
+<a class="font-['Inter'] text-sm tracking-wide uppercase text-black/40 dark:text-white/40 hover:text-[#76583f] transition-colors duration-200" href="#">Contact</a>
+</div>
+</div>
+</footer>
+</body></html>
